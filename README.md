@@ -1,6 +1,6 @@
 # Motion detector
 
-This is a project to test motion detectors for detecting moving people.
+This is a project to demonstrate motion detectors for detecting moving people.
 
 ## Motion detectors
 
