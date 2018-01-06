@@ -32,6 +32,11 @@
       <td>{{hall_time}}</td>
       <td>{{hall_data}}</td>
     </tr>
+    <tr>
+      <td>GPS tracker</td>
+      <td>{{gps_time}}</td>
+      <td>{{gps_data}}</td>
+    </tr>
   </table>
 
   <script>
@@ -56,6 +61,10 @@
         case 'hall':
           $scope.hall_time = payload.timestamp;
           $scope.hall_data = payload.status;
+          break;
+        case 'gps':
+          $scope.gps_time = payload.timestamp;
+          $scope.gps_data = payload.status;
           break;
       }
       $scope.$apply();
