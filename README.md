@@ -48,5 +48,5 @@ I often use Android tablets for demonstrating an IoT prototype. Here is a tip to
 
 ## AngularJS
 
-I know about TypeScript and Angular2, but I stick to AngularJS. I choose AngularJS over Angular2 for IoT prototyping for a lot of reasons.
+I know about TypeScript and Angular2, but I stick to [AngularJS](https://angularjs.org/). I choose AngularJS over Angular2 for IoT prototyping for a lot of reasons.
 
