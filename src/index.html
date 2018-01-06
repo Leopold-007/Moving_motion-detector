@@ -1,0 +1,94 @@
+<html ng-app="app">
+  <head>
+    <meta charset="utf-8">
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>Display</title>
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <script src="./browserMqtt.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+  </head>
+  <body ng-controller="controller">
+
+  <h1>Motion detection</h1>
+
+  <table summary="Sensors">
+    <tr>
+      <th>Device</th>
+      <th>Time</th>
+      <th>Status</th>
+    </tr>
+    <tr>
+      <td>Doppler sensor</td>
+      <td>{{doppler_time}}</td>
+      <td>{{doppler_data}}</td>
+    </tr>
+    <tr>
+      <td>Pressure sensor</td>
+      <td>{{pressure_time}}</td>
+      <td>{{pressure_data}}</td>
+    </tr>
+    <tr>
+      <td>Hall sensor</td>
+      <td>{{hall_time}}</td>
+      <td>{{hall_data}}</td>
+    </tr>
+  </table>
+
+  <script>
+    const RX = "display-rx";
+    const TX = "display-tx";
+
+    function timestamp() {
+      return new Date().toString();
+    }
+
+    function display($scope, payload) {
+      payload = JSON.parse(payload);
+      switch(payload.device) {
+        case 'doppler':
+          $scope.doppler_time = payload.timestamp;
+          $scope.doppler_data = payload.status;
+          break;
+        case 'pressure':
+          $scope.pressure_time = payload.timestamp;
+          $scope.pressure_data = payload.status;
+          break;
+        case 'hall':
+          $scope.hall_time = payload.timestamp;
+          $scope.hall_data = payload.status;
+          break;
+      }
+      $scope.$apply();
+    }
+
+    var appModule = angular.module("app", []);
+    appModule.controller("controller", ['$scope', function($scope) {
+      var serverIp = location.host.split(':')[0]; 
+      var client = mqtt.connect('ws://' + serverIp + ':11883');
+      client.subscribe(RX);
+      $scope.client = client;
+
+      client.on("message", function (topic, payload) {
+        if (topic == RX) { 
+          display($scope, payload);
+        }
+      })
+
+      client.publish(RX, JSON.stringify({
+        device: 'doppler',
+        timestamp: timestamp(),
+        status: 'NA'}));
+      client.publish(RX, JSON.stringify({
+        device: 'pressure',
+        timestamp: timestamp(),
+        status: 'NA'}));
+      client.publish(RX, JSON.stringify({
+        device: 'hall',
+        timestamp: timestamp(),
+        status: 'NA'}));
+
+    }]);
+  </script>
+
+  </body>
+</html>
