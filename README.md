@@ -21,11 +21,19 @@ Logical
 ```
 Raw data <--->[serial-mqtt bridge]<--MQTT-->[mosquitto]<--MQTT over WebSocket-->[SPA/AngularJS/HTML5/Chrome]
 ```
+
+## "serialport" package
+
+I have been owing this "serialport" package a lot for IoT prototyping since 2016: https://www.npmjs.com/package/serialport
+
+Thanks a lot to the developers of the package.
+
 ## MQTT over WebSocket
 
+MQTT is MUST for IoT prototyping. I have even been using MQTT on HTML5.
 - [Obtaining mosquitto with WebSockets enabled](https://xperimentia.com/2015/08/20/installing-mosquitto-mqtt-broker-on-raspberry-pi-with-websockets/)
 - [Building browserMqtt.js](https://github.com/mqttjs/MQTT.js/)
 
 ## Making full screen for Android
 
-https://developer.chrome.com/multidevice/android/installtohomescreen
+I often use Android tablets for demonstrating an IoT prototype. Here is a tip to makeing a HTML5 page fulsucreen on Android: https://developer.chrome.com/multidevice/android/installtohomescreen
