@@ -12,9 +12,9 @@ This is a project to test motion detectors for detecting moving people.
 
 Physical
 ```
- [Sensor]--AnalogIn--[PIC16F1825]--UART--[FTDI]--USB--[RasPi]
+ [Sensor]--AnalogIn--[PIC16F1825]--UART--[FTDI]--USB--[RasPi]--WiFi--[Tablet or PC]
  
- [Sensor module]--UART--[FTDI]--USB--[RasPi]
+ [Sensor module]--UART--[FTDI]--USB--[RasPi]--WiFi--[Tablet or PC]
 ```
 
 Logical
