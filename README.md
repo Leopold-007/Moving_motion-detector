@@ -45,3 +45,8 @@ MQTT is MUST for IoT prototyping. I have even been using MQTT on HTML5.
 ## Making full screen for Android
 
 I often use Android tablets for demonstrating an IoT prototype. Here is a tip to makeing a HTML5 page fulsucreen on Android: https://developer.chrome.com/multidevice/android/installtohomescreen
+
+## AngularJS
+
+I know about TypeScript and Angular2, but I stick to AngularJS. I choose AngularJS over Angular2 for IoT prototyping for a lot of reasons.
+
