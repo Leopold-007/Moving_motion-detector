@@ -2,6 +2,10 @@
 
 This is a project to demonstrate motion detectors for detecting moving people.
 
+## Motivation
+
+I must develop an IoT prototype to detect people moving around in a room.
+
 ## Motion detectors
 
 I often go shopping at [Akizuki-Denshi](http://akizukidenshi.com/) in Akihabara, Tokyo. The company sells sensors at low prices. Thanks a lot to Akizuki-Denshi! The copany have been saveing my life!
