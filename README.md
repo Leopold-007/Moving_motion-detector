@@ -34,7 +34,7 @@ I have been owing this "serialport" package a lot for IoT prototyping since 2016
 
 Thanks a lot to the developers of the package.
 
-I must admit that JavaScript/Node.js is the best language for rapid IoT prototyping, since I have been using it for IoT prototyping at work since 2016.
+I must admit that JavaScript/Node.js is the best language for rapid IoT prototyping, since I have been using it for IoT prototyping at work since 2016, even though I personally prefer Python over JavaScript.
 
 ## MQTT over WebSocket
 
