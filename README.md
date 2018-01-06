@@ -24,5 +24,8 @@ Raw data <--->[serial-mqtt bridge]<--MQTT-->[mosquitto]<--MQTT over WebSocket-->
 ## MQTT over WebSocket
 
 - [Obtaining mosquitto with WebSockets enabled](https://xperimentia.com/2015/08/20/installing-mosquitto-mqtt-broker-on-raspberry-pi-with-websockets/)
-- [Building browserMQTT>js](https://github.com/mqttjs/MQTT.js/)
+- [Building browserMqtt.js](https://github.com/mqttjs/MQTT.js/)
 
+## Making full screen for Android
+
+https://developer.chrome.com/multidevice/android/installtohomescreen
