@@ -14,8 +14,8 @@
   <table summary="Sensors">
     <tr>
       <th>Device</th>
-      <th>Time</th>
-      <th>Status</th>
+      <th>Timestamp</th>
+      <th>Latest status</th>
     </tr>
     <tr>
       <td>Doppler sensor</td>
@@ -32,14 +32,21 @@
       <td>{{hall_time}}</td>
       <td>{{hall_data}}</td>
     </tr>
+    <tr>
+      <td>GPS tracker</td>
+      <td>{{gps_time}}</td>
+      <td>{{gps_data}}</td>
+    </tr>
   </table>
 
   <script>
     const RX = "display-rx";
     const TX = "display-tx";
 
+    const MAX_LENGTH = 80;
+
     function timestamp() {
-      return new Date().toString();
+      return Math.floor(new Date().getTime() / 1000);
     }
 
     function display($scope, payload) {
@@ -47,7 +54,11 @@
       switch(payload.device) {
         case 'doppler':
           $scope.doppler_time = payload.timestamp;
-          $scope.doppler_data = payload.status;
+          if ($scope.doppler_data && $scope.doppler_data.length > MAX_LENGTH) {
+            $scope.doppler_data = payload.status;
+          } else {
+            $scope.doppler_data = $scope.doppler_data + ',' + payload.status;
+          }
           break;
         case 'pressure':
           $scope.pressure_time = payload.timestamp;
@@ -56,6 +67,10 @@
         case 'hall':
           $scope.hall_time = payload.timestamp;
           $scope.hall_data = payload.status;
+          break;
+        case 'gps':
+          $scope.gps_time = payload.timestamp;
+          $scope.gps_data = payload.status;
           break;
       }
       $scope.$apply();
@@ -74,6 +89,7 @@
         }
       })
 
+      // Display initialization
       client.publish(RX, JSON.stringify({
         device: 'doppler',
         timestamp: timestamp(),
@@ -86,7 +102,10 @@
         device: 'hall',
         timestamp: timestamp(),
         status: 'NA'}));
-
+      client.publish(RX, JSON.stringify({
+        device: 'gps',
+        timestamp: timestamp(),
+        status: 'NA'}));
     }]);
   </script>
 
