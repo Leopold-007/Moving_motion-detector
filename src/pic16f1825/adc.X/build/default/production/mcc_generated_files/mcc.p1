@@ -1,14 +1,14 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"89 mcc_generated_files/pin_manager.h
+"208 mcc_generated_files/pin_manager.h
 [v _PIN_MANAGER_Initialize `(v ~T0 @X0 0 ef ]
-"84 mcc_generated_files/mcc.h
+"85 mcc_generated_files/mcc.h
 [v _OSCILLATOR_Initialize `(v ~T0 @X0 0 ef ]
-"97
+"98
 [v _WDT_Initialize `(v ~T0 @X0 0 ef ]
-"135 mcc_generated_files/adc.h
-[v _ADC_Initialize `(v ~T0 @X0 0 ef ]
 "97 mcc_generated_files/tmr0.h
 [v _TMR0_Initialize `(v ~T0 @X0 0 ef ]
+"142 mcc_generated_files/adc.h
+[v _ADC_Initialize `(v ~T0 @X0 0 ef ]
 "106 mcc_generated_files/eusart.h
 [v _EUSART_Initialize `(v ~T0 @X0 0 ef ]
 "1610 C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic16f1825.h
@@ -2637,8 +2637,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic.h: 192: extern unsigned char __resetbits;
 [; ;pic.h: 193: extern __bit __powerdown;
 [; ;pic.h: 194: extern __bit __timeout;
-[; ;pin_manager.h: 89: void PIN_MANAGER_Initialize (void);
-[; ;pin_manager.h: 101: void PIN_MANAGER_IOC(void);
+[; ;pin_manager.h: 208: void PIN_MANAGER_Initialize (void);
+[; ;pin_manager.h: 220: void PIN_MANAGER_IOC(void);
 [; ;stdint.h: 13: typedef signed char int8_t;
 [; ;stdint.h: 20: typedef signed int int16_t;
 [; ;stdint.h: 38: typedef signed long int int32_t;
@@ -2700,6 +2700,17 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;eusart.h: 180: void EUSART_Write(uint8_t txData);
 [; ;eusart.h: 201: void EUSART_Transmit_ISR(void);
 [; ;eusart.h: 222: void EUSART_Receive_ISR(void);
+[; ;memory.h: 98: uint16_t FLASH_ReadWord(uint16_t flashAddr);
+[; ;memory.h: 127: void FLASH_WriteWord(uint16_t flashAddr, uint16_t *ramBuf, uint16_t word);
+[; ;memory.h: 163: int8_t FLASH_WriteBlock(uint16_t writeAddr, uint16_t *flashWordArray);
+[; ;memory.h: 188: void FLASH_EraseBlock(uint16_t startAddr);
+[; ;memory.h: 219: void DATAEE_WriteByte(uint8_t bAdd, uint8_t bData);
+[; ;memory.h: 245: uint8_t DATAEE_ReadByte(uint8_t bAdd);
+[; ;tmr0.h: 97: void TMR0_Initialize(void);
+[; ;tmr0.h: 130: uint8_t TMR0_ReadTimer(void);
+[; ;tmr0.h: 169: void TMR0_WriteTimer(uint8_t timerVal);
+[; ;tmr0.h: 205: void TMR0_Reload(void);
+[; ;tmr0.h: 243: bool TMR0_HasOverflowOccured(void);
 [; ;adc.h: 71: typedef uint16_t adc_result_t;
 [; ;adc.h: 76: typedef struct
 [; ;adc.h: 77: {
@@ -2708,25 +2719,27 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;adc.h: 80: } adc_sync_double_result_t;
 [; ;adc.h: 94: typedef enum
 [; ;adc.h: 95: {
-[; ;adc.h: 96: channel_AN3 = 0x3,
-[; ;adc.h: 97: channel_Temp = 0x1D,
-[; ;adc.h: 98: channel_DAC = 0x1E,
-[; ;adc.h: 99: channel_FVR = 0x1F
-[; ;adc.h: 100: } adc_channel_t;
-[; ;adc.h: 135: void ADC_Initialize(void);
-[; ;adc.h: 165: void ADC_SelectChannel(adc_channel_t channel);
-[; ;adc.h: 192: void ADC_StartConversion();
-[; ;adc.h: 224: bool ADC_IsConversionDone();
-[; ;adc.h: 257: adc_result_t ADC_GetConversionResult(void);
-[; ;adc.h: 287: adc_result_t ADC_GetConversion(adc_channel_t channel);
-[; ;tmr0.h: 97: void TMR0_Initialize(void);
-[; ;tmr0.h: 130: uint8_t TMR0_ReadTimer(void);
-[; ;tmr0.h: 169: void TMR0_WriteTimer(uint8_t timerVal);
-[; ;tmr0.h: 205: void TMR0_Reload(void);
-[; ;tmr0.h: 243: bool TMR0_HasOverflowOccured(void);
-[; ;mcc.h: 71: void SYSTEM_Initialize(void);
-[; ;mcc.h: 84: void OSCILLATOR_Initialize(void);
-[; ;mcc.h: 97: void WDT_Initialize(void);
+[; ;adc.h: 96: channel_AN0 = 0x0,
+[; ;adc.h: 97: channel_AN1 = 0x1,
+[; ;adc.h: 98: channel_AN2 = 0x2,
+[; ;adc.h: 99: channel_AN3 = 0x3,
+[; ;adc.h: 100: channel_AN4 = 0x4,
+[; ;adc.h: 101: channel_AN5 = 0x5,
+[; ;adc.h: 102: channel_AN6 = 0x6,
+[; ;adc.h: 103: channel_AN7 = 0x7,
+[; ;adc.h: 104: channel_Temp = 0x1D,
+[; ;adc.h: 105: channel_DAC = 0x1E,
+[; ;adc.h: 106: channel_FVR = 0x1F
+[; ;adc.h: 107: } adc_channel_t;
+[; ;adc.h: 142: void ADC_Initialize(void);
+[; ;adc.h: 172: void ADC_SelectChannel(adc_channel_t channel);
+[; ;adc.h: 199: void ADC_StartConversion();
+[; ;adc.h: 231: bool ADC_IsConversionDone();
+[; ;adc.h: 264: adc_result_t ADC_GetConversionResult(void);
+[; ;adc.h: 294: adc_result_t ADC_GetConversion(adc_channel_t channel);
+[; ;mcc.h: 72: void SYSTEM_Initialize(void);
+[; ;mcc.h: 85: void OSCILLATOR_Initialize(void);
+[; ;mcc.h: 98: void WDT_Initialize(void);
 "69 mcc_generated_files/mcc.c
 [v _SYSTEM_Initialize `(v ~T0 @X0 1 ef ]
 "70
@@ -2744,12 +2757,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;mcc.c: 74: WDT_Initialize();
 "74
 [e ( _WDT_Initialize ..  ]
-[; ;mcc.c: 75: ADC_Initialize();
+[; ;mcc.c: 75: TMR0_Initialize();
 "75
-[e ( _ADC_Initialize ..  ]
-[; ;mcc.c: 76: TMR0_Initialize();
-"76
 [e ( _TMR0_Initialize ..  ]
+[; ;mcc.c: 76: ADC_Initialize();
+"76
+[e ( _ADC_Initialize ..  ]
 [; ;mcc.c: 77: EUSART_Initialize();
 "77
 [e ( _EUSART_Initialize ..  ]

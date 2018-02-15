@@ -3551,10 +3551,10 @@ extern unsigned char __resetbits;
 extern __bit __powerdown;
 extern __bit __timeout;
 
-# 89 "mcc_generated_files/pin_manager.h"
+# 208 "mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_Initialize (void);
 
-# 101
+# 220
 void PIN_MANAGER_IOC(void);
 
 # 13 "C:\Program Files (x86)\Microchip\xc8\v1.42\include\stdint.h"
@@ -3717,42 +3717,23 @@ void EUSART_Transmit_ISR(void);
 # 222
 void EUSART_Receive_ISR(void);
 
-# 71 "mcc_generated_files/adc.h"
-typedef uint16_t adc_result_t;
+# 98 "mcc_generated_files/memory.h"
+uint16_t FLASH_ReadWord(uint16_t flashAddr);
 
-# 76
-typedef struct
-{
-adc_result_t adcResult1;
-adc_result_t adcResult2;
-} adc_sync_double_result_t;
+# 127
+void FLASH_WriteWord(uint16_t flashAddr, uint16_t *ramBuf, uint16_t word);
 
-# 94
-typedef enum
-{
-channel_AN3 = 0x3,
-channel_Temp = 0x1D,
-channel_DAC = 0x1E,
-channel_FVR = 0x1F
-} adc_channel_t;
+# 163
+int8_t FLASH_WriteBlock(uint16_t writeAddr, uint16_t *flashWordArray);
 
-# 135
-void ADC_Initialize(void);
+# 188
+void FLASH_EraseBlock(uint16_t startAddr);
 
-# 165
-void ADC_SelectChannel(adc_channel_t channel);
+# 219
+void DATAEE_WriteByte(uint8_t bAdd, uint8_t bData);
 
-# 192
-void ADC_StartConversion();
-
-# 224
-bool ADC_IsConversionDone();
-
-# 257
-adc_result_t ADC_GetConversionResult(void);
-
-# 287
-adc_result_t ADC_GetConversion(adc_channel_t channel);
+# 245
+uint8_t DATAEE_ReadByte(uint8_t bAdd);
 
 # 97 "mcc_generated_files/tmr0.h"
 void TMR0_Initialize(void);
@@ -3769,17 +3750,174 @@ void TMR0_Reload(void);
 # 243
 bool TMR0_HasOverflowOccured(void);
 
-# 71 "mcc_generated_files/mcc.h"
+# 71 "mcc_generated_files/adc.h"
+typedef uint16_t adc_result_t;
+
+# 76
+typedef struct
+{
+adc_result_t adcResult1;
+adc_result_t adcResult2;
+} adc_sync_double_result_t;
+
+# 94
+typedef enum
+{
+channel_AN0 = 0x0,
+channel_AN1 = 0x1,
+channel_AN2 = 0x2,
+channel_AN3 = 0x3,
+channel_AN4 = 0x4,
+channel_AN5 = 0x5,
+channel_AN6 = 0x6,
+channel_AN7 = 0x7,
+channel_Temp = 0x1D,
+channel_DAC = 0x1E,
+channel_FVR = 0x1F
+} adc_channel_t;
+
+# 142
+void ADC_Initialize(void);
+
+# 172
+void ADC_SelectChannel(adc_channel_t channel);
+
+# 199
+void ADC_StartConversion();
+
+# 231
+bool ADC_IsConversionDone();
+
+# 264
+adc_result_t ADC_GetConversionResult(void);
+
+# 294
+adc_result_t ADC_GetConversion(adc_channel_t channel);
+
+# 72 "mcc_generated_files/mcc.h"
 void SYSTEM_Initialize(void);
 
-# 84
+# 85
 void OSCILLATOR_Initialize(void);
 
-# 97
+# 98
 void WDT_Initialize(void);
 
-# 4 "main.c"
+# 7 "C:\Program Files (x86)\Microchip\xc8\v1.42\include\stdlib.h"
+typedef unsigned short wchar_t;
+
+# 15
+typedef struct {
+int rem;
+int quot;
+} div_t;
+typedef struct {
+unsigned rem;
+unsigned quot;
+} udiv_t;
+typedef struct {
+long quot;
+long rem;
+} ldiv_t;
+typedef struct {
+unsigned long quot;
+unsigned long rem;
+} uldiv_t;
+
+# 53
+extern double atof(const char *);
+extern double strtod(const char *, const char **);
+extern int atoi(const char *);
+extern unsigned xtoi(const char *);
+extern long atol(const char *);
+extern long strtol(const char *, char **, int);
+
+extern int rand(void);
+extern void srand(unsigned int);
+extern void * calloc(size_t, size_t);
+extern div_t div(int numer, int denom);
+extern udiv_t udiv(unsigned numer, unsigned denom);
+extern ldiv_t ldiv(long numer, long denom);
+extern uldiv_t uldiv(unsigned long numer,unsigned long denom);
+extern unsigned long _lrotl(unsigned long value, unsigned int shift);
+extern unsigned long _lrotr(unsigned long value, unsigned int shift);
+extern unsigned int _rotl(unsigned int value, unsigned int shift);
+extern unsigned int _rotr(unsigned int value, unsigned int shift);
+
+
+
+
+extern void * malloc(size_t);
+extern void free(void *);
+extern void * realloc(void *, size_t);
+
+# 86
+extern int atexit(void (*)(void));
+extern char * getenv(const char *);
+extern char ** environ;
+extern int system(char *);
+extern void qsort(void *, size_t, size_t, int (*)(const void *, const void *));
+extern void * bsearch(const void *, void *, size_t, size_t, int(*)(const void *, const void *));
+extern int abs(int);
+extern long labs(long);
+
+extern char * itoa(char * buf, int val, int base);
+extern char * utoa(char * buf, unsigned val, int base);
+
+
+
+
+extern char * ltoa(char * buf, long val, int base);
+extern char * ultoa(char * buf, unsigned long val, int base);
+
+extern char * ftoa(float f, int * status);
+
+# 14 "C:\Program Files (x86)\Microchip\xc8\v1.42\include\string.h"
+extern void * memcpy(void *, const void *, size_t);
+extern void * memmove(void *, const void *, size_t);
+extern void * memset(void *, int, size_t);
+
+
+
+
+extern void * __builtin_memcpy(void *, const void *, size_t);
+#pragma intrinsic(__builtin_memcpy)
+
+# 36
+extern char * strcat(char *, const char *);
+extern char * strcpy(char *, const char *);
+extern char * strncat(char *, const char *, size_t);
+extern char * strncpy(char *, const char *, size_t);
+extern char * strdup(const char *);
+extern char * strtok(char *, const char *);
+
+
+extern int memcmp(const void *, const void *, size_t);
+extern int strcmp(const char *, const char *);
+extern int stricmp(const char *, const char *);
+extern int strncmp(const char *, const char *, size_t);
+extern int strnicmp(const char *, const char *, size_t);
+extern void * memchr(const void *, int, size_t);
+extern size_t strcspn(const char *, const char *);
+extern char * strpbrk(const char *, const char *);
+extern size_t strspn(const char *, const char *);
+extern char * strstr(const char *, const char *);
+extern char * stristr(const char *, const char *);
+extern char * strerror(int);
+extern size_t strlen(const char *);
+extern char * strchr(const char *, int);
+extern char * strichr(const char *, int);
+extern char * strrchr(const char *, int);
+extern char * strrichr(const char *, int);
+
+# 8 "main.c"
 uint8_t tmr = 0;
+
+const adc_channel_t ANALOG_IN[8] = {
+channel_AN0, channel_AN1, channel_AN2,
+channel_AN3, channel_AN4, channel_AN5,
+channel_AN6, channel_AN7
+};
 
 void main(void)
 {
@@ -3788,17 +3926,50 @@ SYSTEM_Initialize();
 (INTCONbits.GIE = 1);
 (INTCONbits.PEIE = 1);
 
+
+uint8_t buf[8] = {'\n'};
+uint8_t cnt = 0;
+uint8_t c;
+uint8_t t_max = DATAEE_ReadByte(0);
+uint8_t channels = DATAEE_ReadByte(1);
+adc_result_t level[8];
+uint8_t mask = 0b00000001;
+
 while (1)
 {
+uint8_t i;
+c = EUSART_Read();
+buf[cnt++] = c;
+if (c == '\n') {
+buf[cnt] = '\0';
+cnt = 0;
+t_max = atoi(buf);
+if (strncmp("t:", buf, 2) == 0) {
+t_max = atoi(&buf[2]);
+DATAEE_WriteByte(0, t_max);
+} else if (strncmp("f:", buf, 2) == 0) {
+channels = atoi(&buf[2]);
+DATAEE_WriteByte(1, channels);
+}
+}
 if (TMR0_HasOverflowOccured()) {
 TMR0IF = 0;
-if (++tmr >= 4) {
+if (++tmr >= t_max) {
 tmr = 0;
-ADC_SelectChannel(channel_AN3);
+mask = 0b00000001;
+for (i=0; i<8; i++) {
+if (mask & channels) {
+ADC_SelectChannel(ANALOG_IN[i]);
 ADC_StartConversion();
 while(!ADC_IsConversionDone());
-adc_result_t out = ADC_GetConversionResult();
-printf("%d\n", out);
+level[i] = ADC_GetConversionResult();
+}
+mask = mask << 1;
+}
+for (i=0; i<7; i++) {
+printf("%d,", level[i]);
+}
+printf("%d\n", level[7]);
 }
 }
 }

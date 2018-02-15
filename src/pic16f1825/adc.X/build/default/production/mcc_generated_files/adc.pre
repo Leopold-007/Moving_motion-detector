@@ -3639,34 +3639,41 @@ adc_result_t adcResult2;
 # 94
 typedef enum
 {
+channel_AN0 = 0x0,
+channel_AN1 = 0x1,
+channel_AN2 = 0x2,
 channel_AN3 = 0x3,
+channel_AN4 = 0x4,
+channel_AN5 = 0x5,
+channel_AN6 = 0x6,
+channel_AN7 = 0x7,
 channel_Temp = 0x1D,
 channel_DAC = 0x1E,
 channel_FVR = 0x1F
 } adc_channel_t;
 
-# 135
+# 142
 void ADC_Initialize(void);
 
-# 165
+# 172
 void ADC_SelectChannel(adc_channel_t channel);
 
-# 192
+# 199
 void ADC_StartConversion();
 
-# 224
+# 231
 bool ADC_IsConversionDone();
 
-# 257
+# 264
 adc_result_t ADC_GetConversionResult(void);
 
-# 287
+# 294
 adc_result_t ADC_GetConversion(adc_channel_t channel);
 
-# 89 "mcc_generated_files/pin_manager.h"
+# 208 "mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_Initialize (void);
 
-# 101
+# 220
 void PIN_MANAGER_IOC(void);
 
 # 110 "mcc_generated_files/interrupt_manager.h"
@@ -3754,6 +3761,24 @@ void EUSART_Transmit_ISR(void);
 # 222
 void EUSART_Receive_ISR(void);
 
+# 98 "mcc_generated_files/memory.h"
+uint16_t FLASH_ReadWord(uint16_t flashAddr);
+
+# 127
+void FLASH_WriteWord(uint16_t flashAddr, uint16_t *ramBuf, uint16_t word);
+
+# 163
+int8_t FLASH_WriteBlock(uint16_t writeAddr, uint16_t *flashWordArray);
+
+# 188
+void FLASH_EraseBlock(uint16_t startAddr);
+
+# 219
+void DATAEE_WriteByte(uint8_t bAdd, uint8_t bData);
+
+# 245
+uint8_t DATAEE_ReadByte(uint8_t bAdd);
+
 # 97 "mcc_generated_files/tmr0.h"
 void TMR0_Initialize(void);
 
@@ -3769,13 +3794,13 @@ void TMR0_Reload(void);
 # 243
 bool TMR0_HasOverflowOccured(void);
 
-# 71 "mcc_generated_files/mcc.h"
+# 72 "mcc_generated_files/mcc.h"
 void SYSTEM_Initialize(void);
 
-# 84
+# 85
 void OSCILLATOR_Initialize(void);
 
-# 97
+# 98
 void WDT_Initialize(void);
 
 # 64 "mcc_generated_files/adc.c"
@@ -3787,7 +3812,7 @@ void ADC_Initialize(void)
 ADCON0 = 0x01;
 
 
-ADCON1 = 0xC0;
+ADCON1 = 0xF0;
 
 
 ADRESL = 0x00;

@@ -1,6 +1,9 @@
 Version 3.2 HI-TECH Software Intermediate Code
+"10 main.c
+[c E2799 0 1 2 3 4 5 6 7 29 30 31 .. ]
+[n E2799 . channel_AN0 channel_AN1 channel_AN2 channel_AN3 channel_AN4 channel_AN5 channel_AN6 channel_AN7 channel_Temp channel_DAC channel_FVR  ]
 [p mainexit ]
-"71 mcc_generated_files/mcc.h
+"72 mcc_generated_files/mcc.h
 [v _SYSTEM_Initialize `(v ~T0 @X0 0 ef ]
 "355 C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic16f1825.h
 [s S26 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -13,20 +16,27 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S25 . . . ]
 "372
 [v _INTCONbits `VS25 ~T0 @X0 0 e@11 ]
+"245 mcc_generated_files/memory.h
+[v _DATAEE_ReadByte `(uc ~T0 @X0 0 ef1`uc ]
+"155 mcc_generated_files/eusart.h
+[v _EUSART_Read `(uc ~T0 @X0 0 ef ]
+"55 C:\Program Files (x86)\Microchip\xc8\v1.42\include\stdlib.h
+[v _atoi `(i ~T0 @X0 0 ef1`*Cuc ]
+"47 C:\Program Files (x86)\Microchip\xc8\v1.42\include\string.h
+[v _strncmp `(i ~T0 @X0 0 ef3`*Cuc`*Cuc`ui ]
+"219 mcc_generated_files/memory.h
+[v _DATAEE_WriteByte `(v ~T0 @X0 0 ef2`uc`uc ]
 "243 mcc_generated_files/tmr0.h
 [v _TMR0_HasOverflowOccured `(uc ~T0 @X0 0 ef ]
 "7000 C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic16f1825.h
 [v _TMR0IF `Vb ~T0 @X0 0 e@90 ]
-"19 main.c
-[c E2773 3 29 30 31 .. ]
-[n E2773 . channel_AN3 channel_Temp channel_DAC channel_FVR  ]
-"165 mcc_generated_files/adc.h
-[v _ADC_SelectChannel `(v ~T0 @X0 0 ef1`E2773 ]
-"192
+"172 mcc_generated_files/adc.h
+[v _ADC_SelectChannel `(v ~T0 @X0 0 ef1`E2799 ]
+"199
 [v _ADC_StartConversion `(v ~T0 @X0 0 ef ]
-"224
+"231
 [v _ADC_IsConversionDone `(uc ~T0 @X0 0 ef ]
-"257
+"264
 [v _ADC_GetConversionResult `(ui ~T0 @X0 0 ef ]
 "195 C:\Program Files (x86)\Microchip\xc8\v1.42\include\stdio.h
 [v _printf `(i ~T0 @X0 0 ev`*Cuc ]
@@ -2620,8 +2630,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic.h: 192: extern unsigned char __resetbits;
 [; ;pic.h: 193: extern __bit __powerdown;
 [; ;pic.h: 194: extern __bit __timeout;
-[; ;pin_manager.h: 89: void PIN_MANAGER_Initialize (void);
-[; ;pin_manager.h: 101: void PIN_MANAGER_IOC(void);
+[; ;pin_manager.h: 208: void PIN_MANAGER_Initialize (void);
+[; ;pin_manager.h: 220: void PIN_MANAGER_IOC(void);
 [; ;stdint.h: 13: typedef signed char int8_t;
 [; ;stdint.h: 20: typedef signed int int16_t;
 [; ;stdint.h: 38: typedef signed long int int32_t;
@@ -2683,6 +2693,17 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;eusart.h: 180: void EUSART_Write(uint8_t txData);
 [; ;eusart.h: 201: void EUSART_Transmit_ISR(void);
 [; ;eusart.h: 222: void EUSART_Receive_ISR(void);
+[; ;memory.h: 98: uint16_t FLASH_ReadWord(uint16_t flashAddr);
+[; ;memory.h: 127: void FLASH_WriteWord(uint16_t flashAddr, uint16_t *ramBuf, uint16_t word);
+[; ;memory.h: 163: int8_t FLASH_WriteBlock(uint16_t writeAddr, uint16_t *flashWordArray);
+[; ;memory.h: 188: void FLASH_EraseBlock(uint16_t startAddr);
+[; ;memory.h: 219: void DATAEE_WriteByte(uint8_t bAdd, uint8_t bData);
+[; ;memory.h: 245: uint8_t DATAEE_ReadByte(uint8_t bAdd);
+[; ;tmr0.h: 97: void TMR0_Initialize(void);
+[; ;tmr0.h: 130: uint8_t TMR0_ReadTimer(void);
+[; ;tmr0.h: 169: void TMR0_WriteTimer(uint8_t timerVal);
+[; ;tmr0.h: 205: void TMR0_Reload(void);
+[; ;tmr0.h: 243: bool TMR0_HasOverflowOccured(void);
 [; ;adc.h: 71: typedef uint16_t adc_result_t;
 [; ;adc.h: 76: typedef struct
 [; ;adc.h: 77: {
@@ -2691,108 +2712,348 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;adc.h: 80: } adc_sync_double_result_t;
 [; ;adc.h: 94: typedef enum
 [; ;adc.h: 95: {
-[; ;adc.h: 96: channel_AN3 = 0x3,
-[; ;adc.h: 97: channel_Temp = 0x1D,
-[; ;adc.h: 98: channel_DAC = 0x1E,
-[; ;adc.h: 99: channel_FVR = 0x1F
-[; ;adc.h: 100: } adc_channel_t;
-[; ;adc.h: 135: void ADC_Initialize(void);
-[; ;adc.h: 165: void ADC_SelectChannel(adc_channel_t channel);
-[; ;adc.h: 192: void ADC_StartConversion();
-[; ;adc.h: 224: bool ADC_IsConversionDone();
-[; ;adc.h: 257: adc_result_t ADC_GetConversionResult(void);
-[; ;adc.h: 287: adc_result_t ADC_GetConversion(adc_channel_t channel);
-[; ;tmr0.h: 97: void TMR0_Initialize(void);
-[; ;tmr0.h: 130: uint8_t TMR0_ReadTimer(void);
-[; ;tmr0.h: 169: void TMR0_WriteTimer(uint8_t timerVal);
-[; ;tmr0.h: 205: void TMR0_Reload(void);
-[; ;tmr0.h: 243: bool TMR0_HasOverflowOccured(void);
-[; ;mcc.h: 71: void SYSTEM_Initialize(void);
-[; ;mcc.h: 84: void OSCILLATOR_Initialize(void);
-[; ;mcc.h: 97: void WDT_Initialize(void);
-"4 main.c
+[; ;adc.h: 96: channel_AN0 = 0x0,
+[; ;adc.h: 97: channel_AN1 = 0x1,
+[; ;adc.h: 98: channel_AN2 = 0x2,
+[; ;adc.h: 99: channel_AN3 = 0x3,
+[; ;adc.h: 100: channel_AN4 = 0x4,
+[; ;adc.h: 101: channel_AN5 = 0x5,
+[; ;adc.h: 102: channel_AN6 = 0x6,
+[; ;adc.h: 103: channel_AN7 = 0x7,
+[; ;adc.h: 104: channel_Temp = 0x1D,
+[; ;adc.h: 105: channel_DAC = 0x1E,
+[; ;adc.h: 106: channel_FVR = 0x1F
+[; ;adc.h: 107: } adc_channel_t;
+[; ;adc.h: 142: void ADC_Initialize(void);
+[; ;adc.h: 172: void ADC_SelectChannel(adc_channel_t channel);
+[; ;adc.h: 199: void ADC_StartConversion();
+[; ;adc.h: 231: bool ADC_IsConversionDone();
+[; ;adc.h: 264: adc_result_t ADC_GetConversionResult(void);
+[; ;adc.h: 294: adc_result_t ADC_GetConversion(adc_channel_t channel);
+[; ;mcc.h: 72: void SYSTEM_Initialize(void);
+[; ;mcc.h: 85: void OSCILLATOR_Initialize(void);
+[; ;mcc.h: 98: void WDT_Initialize(void);
+[; ;stdlib.h: 7: typedef unsigned short wchar_t;
+[; ;stdlib.h: 15: typedef struct {
+[; ;stdlib.h: 16: int rem;
+[; ;stdlib.h: 17: int quot;
+[; ;stdlib.h: 18: } div_t;
+[; ;stdlib.h: 19: typedef struct {
+[; ;stdlib.h: 20: unsigned rem;
+[; ;stdlib.h: 21: unsigned quot;
+[; ;stdlib.h: 22: } udiv_t;
+[; ;stdlib.h: 23: typedef struct {
+[; ;stdlib.h: 24: long quot;
+[; ;stdlib.h: 25: long rem;
+[; ;stdlib.h: 26: } ldiv_t;
+[; ;stdlib.h: 27: typedef struct {
+[; ;stdlib.h: 28: unsigned long quot;
+[; ;stdlib.h: 29: unsigned long rem;
+[; ;stdlib.h: 30: } uldiv_t;
+[; ;stdlib.h: 53: extern double atof(const char *);
+[; ;stdlib.h: 54: extern double strtod(const char *, const char **);
+[; ;stdlib.h: 55: extern int atoi(const char *);
+[; ;stdlib.h: 56: extern unsigned xtoi(const char *);
+[; ;stdlib.h: 57: extern long atol(const char *);
+[; ;stdlib.h: 58: extern long strtol(const char *, char **, int);
+[; ;stdlib.h: 60: extern int rand(void);
+[; ;stdlib.h: 61: extern void srand(unsigned int);
+[; ;stdlib.h: 62: extern void * calloc(size_t, size_t);
+[; ;stdlib.h: 63: extern div_t div(int numer, int denom);
+[; ;stdlib.h: 64: extern udiv_t udiv(unsigned numer, unsigned denom);
+[; ;stdlib.h: 65: extern ldiv_t ldiv(long numer, long denom);
+[; ;stdlib.h: 66: extern uldiv_t uldiv(unsigned long numer,unsigned long denom);
+[; ;stdlib.h: 67: extern unsigned long _lrotl(unsigned long value, unsigned int shift);
+[; ;stdlib.h: 68: extern unsigned long _lrotr(unsigned long value, unsigned int shift);
+[; ;stdlib.h: 69: extern unsigned int _rotl(unsigned int value, unsigned int shift);
+[; ;stdlib.h: 70: extern unsigned int _rotr(unsigned int value, unsigned int shift);
+[; ;stdlib.h: 75: extern void * malloc(size_t);
+[; ;stdlib.h: 76: extern void free(void *);
+[; ;stdlib.h: 77: extern void * realloc(void *, size_t);
+[; ;stdlib.h: 86: extern int atexit(void (*)(void));
+[; ;stdlib.h: 87: extern char * getenv(const char *);
+[; ;stdlib.h: 88: extern char ** environ;
+[; ;stdlib.h: 89: extern int system(char *);
+[; ;stdlib.h: 90: extern void qsort(void *, size_t, size_t, int (*)(const void *, const void *));
+[; ;stdlib.h: 91: extern void * bsearch(const void *, void *, size_t, size_t, int(*)(const void *, const void *));
+[; ;stdlib.h: 92: extern int abs(int);
+[; ;stdlib.h: 93: extern long labs(long);
+[; ;stdlib.h: 95: extern char * itoa(char * buf, int val, int base);
+[; ;stdlib.h: 96: extern char * utoa(char * buf, unsigned val, int base);
+[; ;stdlib.h: 101: extern char * ltoa(char * buf, long val, int base);
+[; ;stdlib.h: 102: extern char * ultoa(char * buf, unsigned long val, int base);
+[; ;stdlib.h: 104: extern char * ftoa(float f, int * status);
+[; ;string.h: 14: extern void * memcpy(void *, const void *, size_t);
+[; ;string.h: 15: extern void * memmove(void *, const void *, size_t);
+[; ;string.h: 16: extern void * memset(void *, int, size_t);
+[; ;string.h: 21: extern void * __builtin_memcpy(void *, const void *, size_t);
+[; ;string.h: 36: extern char * strcat(char *, const char *);
+[; ;string.h: 37: extern char * strcpy(char *, const char *);
+[; ;string.h: 38: extern char * strncat(char *, const char *, size_t);
+[; ;string.h: 39: extern char * strncpy(char *, const char *, size_t);
+[; ;string.h: 40: extern char * strdup(const char *);
+[; ;string.h: 41: extern char * strtok(char *, const char *);
+[; ;string.h: 44: extern int memcmp(const void *, const void *, size_t);
+[; ;string.h: 45: extern int strcmp(const char *, const char *);
+[; ;string.h: 46: extern int stricmp(const char *, const char *);
+[; ;string.h: 47: extern int strncmp(const char *, const char *, size_t);
+[; ;string.h: 48: extern int strnicmp(const char *, const char *, size_t);
+[; ;string.h: 49: extern void * memchr(const void *, int, size_t);
+[; ;string.h: 50: extern size_t strcspn(const char *, const char *);
+[; ;string.h: 51: extern char * strpbrk(const char *, const char *);
+[; ;string.h: 52: extern size_t strspn(const char *, const char *);
+[; ;string.h: 53: extern char * strstr(const char *, const char *);
+[; ;string.h: 54: extern char * stristr(const char *, const char *);
+[; ;string.h: 55: extern char * strerror(int);
+[; ;string.h: 56: extern size_t strlen(const char *);
+[; ;string.h: 57: extern char * strchr(const char *, int);
+[; ;string.h: 58: extern char * strichr(const char *, int);
+[; ;string.h: 59: extern char * strrchr(const char *, int);
+[; ;string.h: 60: extern char * strrichr(const char *, int);
+"8 main.c
 [v _tmr `uc ~T0 @X0 1 e ]
 [i _tmr
 -> -> 0 `i `uc
 ]
-[; ;main.c: 4: uint8_t tmr = 0;
+[; ;main.c: 8: uint8_t tmr = 0;
+"10
+[v _ANALOG_IN `CE2799 ~T0 @X0 -> 8 `i e ]
+[i _ANALOG_IN
+:U ..
+"11
+. `E2799 0
+. `E2799 1
+. `E2799 2
+"12
+. `E2799 3
+. `E2799 4
+. `E2799 5
+"13
+. `E2799 6
+"14
+. `E2799 7
+..
+]
+[; ;main.c: 10: const adc_channel_t ANALOG_IN[8] = {
+[; ;main.c: 11: channel_AN0, channel_AN1, channel_AN2,
+[; ;main.c: 12: channel_AN3, channel_AN4, channel_AN5,
+[; ;main.c: 13: channel_AN6, channel_AN7
+[; ;main.c: 14: };
 [v $root$_main `(v ~T0 @X0 0 e ]
-"6
+"16
 [v _main `(v ~T0 @X0 1 ef ]
-"7
+"17
 {
-[; ;main.c: 6: void main(void)
-[; ;main.c: 7: {
+[; ;main.c: 16: void main(void)
+[; ;main.c: 17: {
 [e :U _main ]
 [f ]
-[; ;main.c: 9: SYSTEM_Initialize();
-"9
-[e ( _SYSTEM_Initialize ..  ]
-[; ;main.c: 10: (INTCONbits.GIE = 1);
-"10
-[e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
-[; ;main.c: 11: (INTCONbits.PEIE = 1);
-"11
-[e = . . _INTCONbits 0 6 -> -> 1 `i `uc ]
-[; ;main.c: 13: while (1)
-"13
-[e :U 327 ]
-[; ;main.c: 14: {
-"14
-{
-[; ;main.c: 15: if (TMR0_HasOverflowOccured()) {
-"15
-[e $ ! != -> ( _TMR0_HasOverflowOccured ..  `i -> -> -> 0 `i `uc `i 329  ]
-{
-[; ;main.c: 16: TMR0IF = 0;
-"16
-[e = _TMR0IF -> -> 0 `i `b ]
-[; ;main.c: 17: if (++tmr >= 4) {
-"17
-[e $ ! >= -> =+ _tmr -> -> 1 `i `uc `i -> 4 `i 330  ]
-{
-[; ;main.c: 18: tmr = 0;
-"18
-[e = _tmr -> -> 0 `i `uc ]
-[; ;main.c: 19: ADC_SelectChannel(channel_AN3);
+[; ;main.c: 19: SYSTEM_Initialize();
 "19
-[e ( _ADC_SelectChannel (1 . `E2773 0 ]
-[; ;main.c: 20: ADC_StartConversion();
+[e ( _SYSTEM_Initialize ..  ]
+[; ;main.c: 20: (INTCONbits.GIE = 1);
 "20
-[e ( _ADC_StartConversion ..  ]
-[; ;main.c: 21: while(!ADC_IsConversionDone());
+[e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
+[; ;main.c: 21: (INTCONbits.PEIE = 1);
 "21
-[e $U 331  ]
-[e :U 332 ]
-[e :U 331 ]
-[e $ ! != -> ( _ADC_IsConversionDone ..  `i -> -> -> 0 `i `uc `i 332  ]
-[e :U 333 ]
-"22
-[v _out `ui ~T0 @X0 1 a ]
-[; ;main.c: 22: adc_result_t out = ADC_GetConversionResult();
-[e = _out ( _ADC_GetConversionResult ..  ]
-[; ;main.c: 23: printf("%d\n", out);
-"23
-[e ( _printf , (. :s 1C _out ]
+[e = . . _INTCONbits 0 6 -> -> 1 `i `uc ]
+[v F3040 `uc ~T0 @X0 -> 8 `i s ]
+[i F3040
+:U ..
 "24
+-> -> 10 `ui `uc
+..
+]
+[v _buf `uc ~T0 @X0 -> 8 `i a ]
+[; ;main.c: 24: uint8_t buf[8] = {'\n'};
+[e = _buf F3040 ]
+"25
+[v _cnt `uc ~T0 @X0 1 a ]
+[; ;main.c: 25: uint8_t cnt = 0;
+[e = _cnt -> -> 0 `i `uc ]
+"26
+[v _c `uc ~T0 @X0 1 a ]
+"27
+[v _t_max `uc ~T0 @X0 1 a ]
+[; ;main.c: 26: uint8_t c;
+[; ;main.c: 27: uint8_t t_max = DATAEE_ReadByte(0);
+[e = _t_max ( _DATAEE_ReadByte (1 -> -> 0 `i `uc ]
+"28
+[v _channels `uc ~T0 @X0 1 a ]
+[; ;main.c: 28: uint8_t channels = DATAEE_ReadByte(1);
+[e = _channels ( _DATAEE_ReadByte (1 -> -> 1 `i `uc ]
+"29
+[v _level `ui ~T0 @X0 -> 8 `i a ]
+"30
+[v _mask `uc ~T0 @X0 1 a ]
+[; ;main.c: 29: adc_result_t level[8];
+[; ;main.c: 30: uint8_t mask = 0b00000001;
+[e = _mask -> -> 1 `i `uc ]
+[; ;main.c: 32: while (1)
+"32
+[e :U 331 ]
+[; ;main.c: 33: {
+"33
+{
+"34
+[v _i `uc ~T0 @X0 1 a ]
+[; ;main.c: 34: uint8_t i;
+[; ;main.c: 35: c = EUSART_Read();
+"35
+[e = _c ( _EUSART_Read ..  ]
+[; ;main.c: 36: buf[cnt++] = c;
+"36
+[e = *U + &U _buf * -> ++ _cnt -> -> 1 `i `uc `ux -> -> # *U &U _buf `ui `ux _c ]
+[; ;main.c: 37: if (c == '\n') {
+"37
+[e $ ! == -> _c `ui -> 10 `ui 333  ]
+{
+[; ;main.c: 38: buf[cnt] = '\0';
+"38
+[e = *U + &U _buf * -> _cnt `ux -> -> # *U &U _buf `ui `ux -> -> 0 `ui `uc ]
+[; ;main.c: 39: cnt = 0;
+"39
+[e = _cnt -> -> 0 `i `uc ]
+[; ;main.c: 40: t_max = atoi(buf);
+"40
+[e = _t_max -> ( _atoi (1 -> &U _buf `*Cuc `uc ]
+[; ;main.c: 41: if (strncmp("t:", buf, 2) == 0) {
+"41
+[e $ ! == ( _strncmp (3 , , :s 1C -> &U _buf `*Cuc -> -> 2 `i `ui -> 0 `i 334  ]
+{
+[; ;main.c: 42: t_max = atoi(&buf[2]);
+"42
+[e = _t_max -> ( _atoi (1 -> &U *U + &U _buf * -> -> -> 2 `i `ui `ux -> -> # *U &U _buf `ui `ux `*Cuc `uc ]
+[; ;main.c: 43: DATAEE_WriteByte(0, t_max);
+"43
+[e ( _DATAEE_WriteByte (2 , -> -> 0 `i `uc _t_max ]
+"44
+}
+[; ;main.c: 44: } else if (strncmp("f:", buf, 2) == 0) {
+[e $U 335  ]
+[e :U 334 ]
+[e $ ! == ( _strncmp (3 , , :s 2C -> &U _buf `*Cuc -> -> 2 `i `ui -> 0 `i 336  ]
+{
+[; ;main.c: 45: channels = atoi(&buf[2]);
+"45
+[e = _channels -> ( _atoi (1 -> &U *U + &U _buf * -> -> -> 2 `i `ui `ux -> -> # *U &U _buf `ui `ux `*Cuc `uc ]
+[; ;main.c: 46: DATAEE_WriteByte(1, channels);
+"46
+[e ( _DATAEE_WriteByte (2 , -> -> 1 `i `uc _channels ]
+"47
+}
+[e :U 336 ]
+"48
+[e :U 335 ]
+}
+[e :U 333 ]
+[; ;main.c: 47: }
+[; ;main.c: 48: }
+[; ;main.c: 49: if (TMR0_HasOverflowOccured()) {
+"49
+[e $ ! != -> ( _TMR0_HasOverflowOccured ..  `i -> -> -> 0 `i `uc `i 337  ]
+{
+[; ;main.c: 50: TMR0IF = 0;
+"50
+[e = _TMR0IF -> -> 0 `i `b ]
+[; ;main.c: 51: if (++tmr >= t_max) {
+"51
+[e $ ! >= -> =+ _tmr -> -> 1 `i `uc `i -> _t_max `i 338  ]
+{
+[; ;main.c: 52: tmr = 0;
+"52
+[e = _tmr -> -> 0 `i `uc ]
+[; ;main.c: 53: mask = 0b00000001;
+"53
+[e = _mask -> -> 1 `i `uc ]
+[; ;main.c: 54: for (i=0; i<8; i++) {
+"54
+{
+[e = _i -> -> 0 `i `uc ]
+[e $ < -> _i `i -> 8 `i 339  ]
+[e $U 340  ]
+[e :U 339 ]
+{
+[; ;main.c: 55: if (mask & channels) {
+"55
+[e $ ! != & -> _mask `i -> _channels `i -> 0 `i 342  ]
+{
+[; ;main.c: 56: ADC_SelectChannel(ANALOG_IN[i]);
+"56
+[e ( _ADC_SelectChannel (1 *U + &U _ANALOG_IN * -> _i `ux -> -> # *U &U _ANALOG_IN `ui `ux ]
+[; ;main.c: 57: ADC_StartConversion();
+"57
+[e ( _ADC_StartConversion ..  ]
+[; ;main.c: 58: while(!ADC_IsConversionDone());
+"58
+[e $U 343  ]
+[e :U 344 ]
+[e :U 343 ]
+[e $ ! != -> ( _ADC_IsConversionDone ..  `i -> -> -> 0 `i `uc `i 344  ]
+[e :U 345 ]
+[; ;main.c: 59: level[i] = ADC_GetConversionResult();
+"59
+[e = *U + &U _level * -> _i `ux -> -> # *U &U _level `ui `ux ( _ADC_GetConversionResult ..  ]
+"60
+}
+[e :U 342 ]
+[; ;main.c: 60: }
+[; ;main.c: 61: mask = mask << 1;
+"61
+[e = _mask -> << -> _mask `i -> 1 `i `uc ]
+"62
+}
+"54
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> 8 `i 339  ]
+[e :U 340 ]
+"62
+}
+[; ;main.c: 62: }
+[; ;main.c: 63: for (i=0; i<7; i++) {
+"63
+{
+[e = _i -> -> 0 `i `uc ]
+[e $ < -> _i `i -> 7 `i 346  ]
+[e $U 347  ]
+[e :U 346 ]
+{
+[; ;main.c: 64: printf("%d,", level[i]);
+"64
+[e ( _printf , (. :s 3C *U + &U _level * -> _i `ux -> -> # *U &U _level `ui `ux ]
+"65
+}
+"63
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> 7 `i 346  ]
+[e :U 347 ]
+"65
+}
+[; ;main.c: 65: }
+[; ;main.c: 66: printf("%d\n", level[7]);
+"66
+[e ( _printf , (. :s 4C *U + &U _level * -> -> -> 7 `i `ui `ux -> -> # *U &U _level `ui `ux ]
+"67
+}
+[e :U 338 ]
+"68
+}
+[e :U 337 ]
+"69
 }
 [e :U 330 ]
-"25
-}
-[e :U 329 ]
-"26
-}
-[e :U 326 ]
-"13
-[e $U 327  ]
-[e :U 328 ]
-[; ;main.c: 24: }
-[; ;main.c: 25: }
-[; ;main.c: 26: }
-[; ;main.c: 27: }
-"27
-[e :UE 325 ]
+"32
+[e $U 331  ]
+[e :U 332 ]
+[; ;main.c: 67: }
+[; ;main.c: 68: }
+[; ;main.c: 69: }
+[; ;main.c: 70: }
+"70
+[e :UE 329 ]
 }
 [p f _printf 8388736 ]
-[a 1C 37 100 10 0 ]
-
+[a 1C 116 58 0 ]
+[a 2C 102 58 0 ]
+[a 3C 37 100 44 0 ]
+[a 4C 37 100 10 0 ]

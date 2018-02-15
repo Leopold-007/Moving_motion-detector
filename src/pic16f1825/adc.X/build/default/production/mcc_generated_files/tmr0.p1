@@ -2643,15 +2643,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;tmr0.c: 63: {
 [e :U _TMR0_Initialize ]
 [f ]
-[; ;tmr0.c: 67: OPTION_REG = (uint8_t)((OPTION_REG & 0xC0) | 0xD7 & 0x3F);
+[; ;tmr0.c: 67: OPTION_REG = (uint8_t)((OPTION_REG & 0xC0) | 0xD2 & 0x3F);
 "67
-[e = _OPTION_REG -> | & -> _OPTION_REG `i -> 192 `i & -> 215 `i -> 63 `i `uc ]
-[; ;tmr0.c: 70: TMR0 = 0x0C;
+[e = _OPTION_REG -> | & -> _OPTION_REG `i -> 192 `i & -> 210 `i -> 63 `i `uc ]
+[; ;tmr0.c: 70: TMR0 = 0x06;
 "70
-[e = _TMR0 -> -> 12 `i `uc ]
-[; ;tmr0.c: 73: timer0ReloadVal= 12;
+[e = _TMR0 -> -> 6 `i `uc ]
+[; ;tmr0.c: 73: timer0ReloadVal= 6;
 "73
-[e = _timer0ReloadVal -> -> 12 `i `uc ]
+[e = _timer0ReloadVal -> -> 6 `i `uc ]
 [; ;tmr0.c: 76: INTCONbits.TMR0IF = 0;
 "76
 [e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
