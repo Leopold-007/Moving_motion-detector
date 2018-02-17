@@ -2817,239 +2817,231 @@ Version 3.2 HI-TECH Software Intermediate Code
 ]
 [; ;main.c: 8: uint8_t tmr = 0;
 "10
-[v _ANALOG_IN `CE2799 ~T0 @X0 -> 8 `i e ]
+[v _ANALOG_IN `CE2799 ~T0 @X0 -> 4 `i e ]
 [i _ANALOG_IN
 :U ..
 "11
-. `E2799 0
-. `E2799 1
 . `E2799 2
-"12
-. `E2799 3
 . `E2799 4
 . `E2799 5
-"13
+"12
 . `E2799 6
-"14
-. `E2799 7
 ..
 ]
-[; ;main.c: 10: const adc_channel_t ANALOG_IN[8] = {
-[; ;main.c: 11: channel_AN0, channel_AN1, channel_AN2,
-[; ;main.c: 12: channel_AN3, channel_AN4, channel_AN5,
-[; ;main.c: 13: channel_AN6, channel_AN7
-[; ;main.c: 14: };
+[; ;main.c: 10: const adc_channel_t ANALOG_IN[4] = {
+[; ;main.c: 11: channel_AN2,channel_AN4, channel_AN5, channel_AN6
+[; ;main.c: 12: };
 [v $root$_main `(v ~T0 @X0 0 e ]
-"16
+"14
 [v _main `(v ~T0 @X0 1 ef ]
-"17
+"15
 {
-[; ;main.c: 16: void main(void)
-[; ;main.c: 17: {
+[; ;main.c: 14: void main(void)
+[; ;main.c: 15: {
 [e :U _main ]
 [f ]
-[; ;main.c: 19: SYSTEM_Initialize();
-"19
+[; ;main.c: 17: SYSTEM_Initialize();
+"17
 [e ( _SYSTEM_Initialize ..  ]
-[; ;main.c: 20: (INTCONbits.GIE = 1);
-"20
+[; ;main.c: 18: (INTCONbits.GIE = 1);
+"18
 [e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
-[; ;main.c: 21: (INTCONbits.PEIE = 1);
-"21
+[; ;main.c: 19: (INTCONbits.PEIE = 1);
+"19
 [e = . . _INTCONbits 0 6 -> -> 1 `i `uc ]
 [v F3040 `uc ~T0 @X0 -> 8 `i s ]
 [i F3040
 :U ..
-"24
+"22
 -> -> 10 `ui `uc
 ..
 ]
 [v _buf `uc ~T0 @X0 -> 8 `i a ]
-[; ;main.c: 24: uint8_t buf[8] = {'\n'};
+[; ;main.c: 22: uint8_t buf[8] = {'\n'};
 [e = _buf F3040 ]
-"25
+"23
 [v _cnt `uc ~T0 @X0 1 a ]
-[; ;main.c: 25: uint8_t cnt = 0;
+[; ;main.c: 23: uint8_t cnt = 0;
 [e = _cnt -> -> 0 `i `uc ]
-"26
+"24
 [v _c `uc ~T0 @X0 1 a ]
-"27
+"25
 [v _t_max `uc ~T0 @X0 1 a ]
-[; ;main.c: 26: uint8_t c;
-[; ;main.c: 27: uint8_t t_max = DATAEE_ReadByte(0);
+[; ;main.c: 24: uint8_t c;
+[; ;main.c: 25: uint8_t t_max = DATAEE_ReadByte(0);
 [e = _t_max ( _DATAEE_ReadByte (1 -> -> 0 `i `uc ]
-"28
+"26
 [v _channels `uc ~T0 @X0 1 a ]
-[; ;main.c: 28: uint8_t channels = DATAEE_ReadByte(1);
+[; ;main.c: 26: uint8_t channels = DATAEE_ReadByte(1);
 [e = _channels ( _DATAEE_ReadByte (1 -> -> 1 `i `uc ]
-"29
-[v _level `ui ~T0 @X0 -> 8 `i a ]
-"30
+"27
+[v _level `ui ~T0 @X0 -> 4 `i a ]
+"28
 [v _mask `uc ~T0 @X0 1 a ]
-[; ;main.c: 29: adc_result_t level[8];
-[; ;main.c: 30: uint8_t mask = 0b00000001;
+[; ;main.c: 27: adc_result_t level[4];
+[; ;main.c: 28: uint8_t mask = 0b00000001;
 [e = _mask -> -> 1 `i `uc ]
-[; ;main.c: 32: while (1)
-"32
+[; ;main.c: 30: while (1)
+"30
 [e :U 331 ]
-[; ;main.c: 33: {
-"33
+[; ;main.c: 31: {
+"31
 {
-"34
+"32
 [v _i `uc ~T0 @X0 1 a ]
-[; ;main.c: 34: uint8_t i;
-[; ;main.c: 35: c = EUSART_Read();
-"35
+[; ;main.c: 32: uint8_t i;
+[; ;main.c: 33: c = EUSART_Read();
+"33
 [e = _c ( _EUSART_Read ..  ]
-[; ;main.c: 36: buf[cnt++] = c;
-"36
+[; ;main.c: 34: buf[cnt++] = c;
+"34
 [e = *U + &U _buf * -> ++ _cnt -> -> 1 `i `uc `ux -> -> # *U &U _buf `ui `ux _c ]
-[; ;main.c: 37: if (c == '\n') {
-"37
+[; ;main.c: 35: if (c == '\n') {
+"35
 [e $ ! == -> _c `ui -> 10 `ui 333  ]
 {
-[; ;main.c: 38: buf[cnt] = '\0';
-"38
+[; ;main.c: 36: buf[cnt] = '\0';
+"36
 [e = *U + &U _buf * -> _cnt `ux -> -> # *U &U _buf `ui `ux -> -> 0 `ui `uc ]
-[; ;main.c: 39: cnt = 0;
-"39
+[; ;main.c: 37: cnt = 0;
+"37
 [e = _cnt -> -> 0 `i `uc ]
-[; ;main.c: 40: t_max = atoi(buf);
-"40
+[; ;main.c: 38: t_max = atoi(buf);
+"38
 [e = _t_max -> ( _atoi (1 -> &U _buf `*Cuc `uc ]
-[; ;main.c: 41: if (strncmp("t:", buf, 2) == 0) {
-"41
+[; ;main.c: 39: if (strncmp("t:", buf, 2) == 0) {
+"39
 [e $ ! == ( _strncmp (3 , , :s 1C -> &U _buf `*Cuc -> -> 2 `i `ui -> 0 `i 334  ]
 {
-[; ;main.c: 42: t_max = atoi(&buf[2]);
-"42
+[; ;main.c: 40: t_max = atoi(&buf[2]);
+"40
 [e = _t_max -> ( _atoi (1 -> &U *U + &U _buf * -> -> -> 2 `i `ui `ux -> -> # *U &U _buf `ui `ux `*Cuc `uc ]
-[; ;main.c: 43: DATAEE_WriteByte(0, t_max);
-"43
+[; ;main.c: 41: DATAEE_WriteByte(0, t_max);
+"41
 [e ( _DATAEE_WriteByte (2 , -> -> 0 `i `uc _t_max ]
-"44
+"42
 }
-[; ;main.c: 44: } else if (strncmp("f:", buf, 2) == 0) {
+[; ;main.c: 42: } else if (strncmp("f:", buf, 2) == 0) {
 [e $U 335  ]
 [e :U 334 ]
 [e $ ! == ( _strncmp (3 , , :s 2C -> &U _buf `*Cuc -> -> 2 `i `ui -> 0 `i 336  ]
 {
-[; ;main.c: 45: channels = atoi(&buf[2]);
-"45
+[; ;main.c: 43: channels = atoi(&buf[2]);
+"43
 [e = _channels -> ( _atoi (1 -> &U *U + &U _buf * -> -> -> 2 `i `ui `ux -> -> # *U &U _buf `ui `ux `*Cuc `uc ]
-[; ;main.c: 46: DATAEE_WriteByte(1, channels);
-"46
+[; ;main.c: 44: DATAEE_WriteByte(1, channels);
+"44
 [e ( _DATAEE_WriteByte (2 , -> -> 1 `i `uc _channels ]
-"47
+"45
 }
 [e :U 336 ]
-"48
+"46
 [e :U 335 ]
 }
 [e :U 333 ]
-[; ;main.c: 47: }
-[; ;main.c: 48: }
-[; ;main.c: 49: if (TMR0_HasOverflowOccured()) {
-"49
+[; ;main.c: 45: }
+[; ;main.c: 46: }
+[; ;main.c: 47: if (TMR0_HasOverflowOccured()) {
+"47
 [e $ ! != -> ( _TMR0_HasOverflowOccured ..  `i -> -> -> 0 `i `uc `i 337  ]
 {
-[; ;main.c: 50: TMR0IF = 0;
-"50
+[; ;main.c: 48: TMR0IF = 0;
+"48
 [e = _TMR0IF -> -> 0 `i `b ]
-[; ;main.c: 51: if (++tmr >= t_max) {
-"51
+[; ;main.c: 49: if (++tmr >= t_max) {
+"49
 [e $ ! >= -> =+ _tmr -> -> 1 `i `uc `i -> _t_max `i 338  ]
 {
-[; ;main.c: 52: tmr = 0;
-"52
+[; ;main.c: 50: tmr = 0;
+"50
 [e = _tmr -> -> 0 `i `uc ]
-[; ;main.c: 53: mask = 0b00000001;
-"53
+[; ;main.c: 51: mask = 0b00000001;
+"51
 [e = _mask -> -> 1 `i `uc ]
-[; ;main.c: 54: for (i=0; i<8; i++) {
-"54
+[; ;main.c: 52: for (i=0; i<4; i++) {
+"52
 {
 [e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> 8 `i 339  ]
+[e $ < -> _i `i -> 4 `i 339  ]
 [e $U 340  ]
 [e :U 339 ]
 {
-[; ;main.c: 55: if (mask & channels) {
-"55
+[; ;main.c: 53: if (mask & channels) {
+"53
 [e $ ! != & -> _mask `i -> _channels `i -> 0 `i 342  ]
 {
-[; ;main.c: 56: ADC_SelectChannel(ANALOG_IN[i]);
-"56
+[; ;main.c: 54: ADC_SelectChannel(ANALOG_IN[i]);
+"54
 [e ( _ADC_SelectChannel (1 *U + &U _ANALOG_IN * -> _i `ux -> -> # *U &U _ANALOG_IN `ui `ux ]
-[; ;main.c: 57: ADC_StartConversion();
-"57
+[; ;main.c: 55: ADC_StartConversion();
+"55
 [e ( _ADC_StartConversion ..  ]
-[; ;main.c: 58: while(!ADC_IsConversionDone());
-"58
+[; ;main.c: 56: while(!ADC_IsConversionDone());
+"56
 [e $U 343  ]
 [e :U 344 ]
 [e :U 343 ]
 [e $ ! != -> ( _ADC_IsConversionDone ..  `i -> -> -> 0 `i `uc `i 344  ]
 [e :U 345 ]
-[; ;main.c: 59: level[i] = ADC_GetConversionResult();
-"59
+[; ;main.c: 57: level[i] = ADC_GetConversionResult();
+"57
 [e = *U + &U _level * -> _i `ux -> -> # *U &U _level `ui `ux ( _ADC_GetConversionResult ..  ]
-"60
+"58
 }
 [e :U 342 ]
-[; ;main.c: 60: }
-[; ;main.c: 61: mask = mask << 1;
-"61
+[; ;main.c: 58: }
+[; ;main.c: 59: mask = mask << 1;
+"59
 [e = _mask -> << -> _mask `i -> 1 `i `uc ]
-"62
+"60
 }
-"54
+"52
 [e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 8 `i 339  ]
+[e $ < -> _i `i -> 4 `i 339  ]
 [e :U 340 ]
-"62
+"60
 }
-[; ;main.c: 62: }
-[; ;main.c: 63: for (i=0; i<7; i++) {
-"63
+[; ;main.c: 60: }
+[; ;main.c: 61: for (i=0; i<3; i++) {
+"61
 {
 [e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> 7 `i 346  ]
+[e $ < -> _i `i -> 3 `i 346  ]
 [e $U 347  ]
 [e :U 346 ]
 {
-[; ;main.c: 64: printf("%d,", level[i]);
-"64
+[; ;main.c: 62: printf("%d,", level[i]);
+"62
 [e ( _printf , (. :s 3C *U + &U _level * -> _i `ux -> -> # *U &U _level `ui `ux ]
-"65
-}
 "63
-[e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 7 `i 346  ]
-[e :U 347 ]
-"65
 }
-[; ;main.c: 65: }
-[; ;main.c: 66: printf("%d\n", level[7]);
-"66
-[e ( _printf , (. :s 4C *U + &U _level * -> -> -> 7 `i `ui `ux -> -> # *U &U _level `ui `ux ]
-"67
+"61
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> 3 `i 346  ]
+[e :U 347 ]
+"63
+}
+[; ;main.c: 63: }
+[; ;main.c: 64: printf("%d\n", level[3]);
+"64
+[e ( _printf , (. :s 4C *U + &U _level * -> -> -> 3 `i `ui `ux -> -> # *U &U _level `ui `ux ]
+"65
 }
 [e :U 338 ]
-"68
+"66
 }
 [e :U 337 ]
-"69
+"67
 }
 [e :U 330 ]
-"32
+"30
 [e $U 331  ]
 [e :U 332 ]
+[; ;main.c: 65: }
+[; ;main.c: 66: }
 [; ;main.c: 67: }
 [; ;main.c: 68: }
-[; ;main.c: 69: }
-[; ;main.c: 70: }
-"70
+"68
 [e :UE 329 ]
 }
 [p f _printf 8388736 ]

@@ -7,10 +7,8 @@
 // Timer0 period: 8msec
 uint8_t tmr = 0;
 
-const adc_channel_t ANALOG_IN[8] = {
-    channel_AN0, channel_AN1, channel_AN2,
-    channel_AN3, channel_AN4, channel_AN5,
-    channel_AN6, channel_AN7
+const adc_channel_t ANALOG_IN[4] = {
+    channel_AN2,channel_AN4, channel_AN5, channel_AN6
 };
     
 void main(void)
@@ -26,7 +24,7 @@ void main(void)
     uint8_t c;
     uint8_t t_max = DATAEE_ReadByte(0);  // 8msec * 125 = 1sec
     uint8_t channels = DATAEE_ReadByte(1);
-    adc_result_t level[8];
+    adc_result_t level[4];
     uint8_t mask = MASK;
     
     while (1)
@@ -48,10 +46,10 @@ void main(void)
         }
         if (TMR0_HasOverflowOccured()) {
             TMR0IF = 0;
-            if (++tmr >= t_max) {  // 8msec * 125 = 1sec
+            if (++tmr >= t_max) {
                 tmr = 0;
                 mask = MASK;
-                for (i=0; i<8; i++) {
+                for (i=0; i<4; i++) {
                     if (mask & channels) {
                         ADC_SelectChannel(ANALOG_IN[i]);
                         ADC_StartConversion();
@@ -60,10 +58,10 @@ void main(void)
                     }
                     mask = mask << 1;
                 }
-                for (i=0; i<7; i++) {
+                for (i=0; i<3; i++) {
                     printf("%d,", level[i]);
                 }
-                printf("%d\n", level[7]);
+                printf("%d\n", level[3]);
             }
         }
     }
