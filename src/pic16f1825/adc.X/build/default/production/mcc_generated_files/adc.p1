@@ -8,8 +8,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 "1771
 [v _ADRESH `Vuc ~T0 @X0 0 e@156 ]
 "83 mcc_generated_files/adc.c
-[c E2692 0 1 2 3 4 5 6 7 29 30 31 .. ]
-[n E2692 . channel_AN0 channel_AN1 channel_AN2 channel_AN3 channel_AN4 channel_AN5 channel_AN6 channel_AN7 channel_Temp channel_DAC channel_FVR  ]
+[c E2692 2 4 5 6 29 30 31 .. ]
+[n E2692 . channel_AN2 channel_AN4 channel_AN5 channel_AN6 channel_Temp channel_DAC channel_FVR  ]
 "1797 C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic16f1825.h
 [s S94 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S94 . ADON GO_nDONE CHS0 CHS1 CHS2 CHS3 CHS4 ]
@@ -2649,27 +2649,22 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;adc.h: 80: } adc_sync_double_result_t;
 [; ;adc.h: 94: typedef enum
 [; ;adc.h: 95: {
-[; ;adc.h: 96: channel_AN0 = 0x0,
-[; ;adc.h: 97: channel_AN1 = 0x1,
-[; ;adc.h: 98: channel_AN2 = 0x2,
-[; ;adc.h: 99: channel_AN3 = 0x3,
-[; ;adc.h: 100: channel_AN4 = 0x4,
-[; ;adc.h: 101: channel_AN5 = 0x5,
-[; ;adc.h: 102: channel_AN6 = 0x6,
-[; ;adc.h: 103: channel_AN7 = 0x7,
-[; ;adc.h: 104: channel_Temp = 0x1D,
-[; ;adc.h: 105: channel_DAC = 0x1E,
-[; ;adc.h: 106: channel_FVR = 0x1F
-[; ;adc.h: 107: } adc_channel_t;
-[; ;adc.h: 142: void ADC_Initialize(void);
-[; ;adc.h: 172: void ADC_SelectChannel(adc_channel_t channel);
-[; ;adc.h: 199: void ADC_StartConversion();
-[; ;adc.h: 231: bool ADC_IsConversionDone();
-[; ;adc.h: 264: adc_result_t ADC_GetConversionResult(void);
-[; ;adc.h: 294: adc_result_t ADC_GetConversion(adc_channel_t channel);
-[; ;pin_manager.h: 208: void PIN_MANAGER_Initialize (void);
-[; ;pin_manager.h: 220: void PIN_MANAGER_IOC(void);
-[; ;interrupt_manager.h: 110: void interrupt INTERRUPT_InterruptManager(void);
+[; ;adc.h: 96: channel_AN2 = 0x2,
+[; ;adc.h: 97: channel_AN4 = 0x4,
+[; ;adc.h: 98: channel_AN5 = 0x5,
+[; ;adc.h: 99: channel_AN6 = 0x6,
+[; ;adc.h: 100: channel_Temp = 0x1D,
+[; ;adc.h: 101: channel_DAC = 0x1E,
+[; ;adc.h: 102: channel_FVR = 0x1F
+[; ;adc.h: 103: } adc_channel_t;
+[; ;adc.h: 138: void ADC_Initialize(void);
+[; ;adc.h: 168: void ADC_SelectChannel(adc_channel_t channel);
+[; ;adc.h: 195: void ADC_StartConversion();
+[; ;adc.h: 227: bool ADC_IsConversionDone();
+[; ;adc.h: 260: adc_result_t ADC_GetConversionResult(void);
+[; ;adc.h: 290: adc_result_t ADC_GetConversion(adc_channel_t channel);
+[; ;pin_manager.h: 160: void PIN_MANAGER_Initialize (void);
+[; ;pin_manager.h: 172: void PIN_MANAGER_IOC(void);
 [; ;__size_t.h: 4: typedef unsigned size_t;
 [; ;stdarg.h: 7: typedef void * va_list[1];
 [; ;stdarg.h: 10: extern void * __va_start(void);
@@ -2700,13 +2695,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdio.h: 190: extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
 [; ;stdio.h: 194: extern int sprintf(char *, const char *, ...);
 [; ;stdio.h: 195: extern int printf(const char *, ...);
-[; ;eusart.h: 77: extern volatile uint8_t eusartTxBufferRemaining;
-[; ;eusart.h: 78: extern volatile uint8_t eusartRxCount;
-[; ;eusart.h: 106: void EUSART_Initialize(void);
-[; ;eusart.h: 155: uint8_t EUSART_Read(void);
-[; ;eusart.h: 180: void EUSART_Write(uint8_t txData);
-[; ;eusart.h: 201: void EUSART_Transmit_ISR(void);
-[; ;eusart.h: 222: void EUSART_Receive_ISR(void);
+[; ;eusart.h: 95: void EUSART_Initialize(void);
+[; ;eusart.h: 115: uint8_t EUSART_Read(void);
+[; ;eusart.h: 135: void EUSART_Write(uint8_t txData);
 [; ;memory.h: 98: uint16_t FLASH_ReadWord(uint16_t flashAddr);
 [; ;memory.h: 127: void FLASH_WriteWord(uint16_t flashAddr, uint16_t *ramBuf, uint16_t word);
 [; ;memory.h: 163: int8_t FLASH_WriteBlock(uint16_t writeAddr, uint16_t *flashWordArray);
@@ -2718,9 +2709,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;tmr0.h: 169: void TMR0_WriteTimer(uint8_t timerVal);
 [; ;tmr0.h: 205: void TMR0_Reload(void);
 [; ;tmr0.h: 243: bool TMR0_HasOverflowOccured(void);
-[; ;mcc.h: 72: void SYSTEM_Initialize(void);
-[; ;mcc.h: 85: void OSCILLATOR_Initialize(void);
-[; ;mcc.h: 98: void WDT_Initialize(void);
+[; ;mcc.h: 71: void SYSTEM_Initialize(void);
+[; ;mcc.h: 84: void OSCILLATOR_Initialize(void);
+[; ;mcc.h: 97: void WDT_Initialize(void);
 "64 mcc_generated_files/adc.c
 [v _ADC_Initialize `(v ~T0 @X0 1 ef ]
 "65

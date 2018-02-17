@@ -59,40 +59,6 @@
 #define PULL_UP_ENABLED      1
 #define PULL_UP_DISABLED     0
 
-// get/set channel_AN0 aliases
-#define channel_AN0_TRIS               TRISAbits.TRISA0
-#define channel_AN0_LAT                LATAbits.LATA0
-#define channel_AN0_PORT               PORTAbits.RA0
-#define channel_AN0_WPU                WPUAbits.WPUA0
-#define channel_AN0_ANS                ANSELAbits.ANSA0
-#define channel_AN0_SetHigh()            do { LATAbits.LATA0 = 1; } while(0)
-#define channel_AN0_SetLow()             do { LATAbits.LATA0 = 0; } while(0)
-#define channel_AN0_Toggle()             do { LATAbits.LATA0 = ~LATAbits.LATA0; } while(0)
-#define channel_AN0_GetValue()           PORTAbits.RA0
-#define channel_AN0_SetDigitalInput()    do { TRISAbits.TRISA0 = 1; } while(0)
-#define channel_AN0_SetDigitalOutput()   do { TRISAbits.TRISA0 = 0; } while(0)
-#define channel_AN0_SetPullup()      do { WPUAbits.WPUA0 = 1; } while(0)
-#define channel_AN0_ResetPullup()    do { WPUAbits.WPUA0 = 0; } while(0)
-#define channel_AN0_SetAnalogMode()  do { ANSELAbits.ANSA0 = 1; } while(0)
-#define channel_AN0_SetDigitalMode() do { ANSELAbits.ANSA0 = 0; } while(0)
-
-// get/set channel_AN1 aliases
-#define channel_AN1_TRIS               TRISAbits.TRISA1
-#define channel_AN1_LAT                LATAbits.LATA1
-#define channel_AN1_PORT               PORTAbits.RA1
-#define channel_AN1_WPU                WPUAbits.WPUA1
-#define channel_AN1_ANS                ANSELAbits.ANSA1
-#define channel_AN1_SetHigh()            do { LATAbits.LATA1 = 1; } while(0)
-#define channel_AN1_SetLow()             do { LATAbits.LATA1 = 0; } while(0)
-#define channel_AN1_Toggle()             do { LATAbits.LATA1 = ~LATAbits.LATA1; } while(0)
-#define channel_AN1_GetValue()           PORTAbits.RA1
-#define channel_AN1_SetDigitalInput()    do { TRISAbits.TRISA1 = 1; } while(0)
-#define channel_AN1_SetDigitalOutput()   do { TRISAbits.TRISA1 = 0; } while(0)
-#define channel_AN1_SetPullup()      do { WPUAbits.WPUA1 = 1; } while(0)
-#define channel_AN1_ResetPullup()    do { WPUAbits.WPUA1 = 0; } while(0)
-#define channel_AN1_SetAnalogMode()  do { ANSELAbits.ANSA1 = 1; } while(0)
-#define channel_AN1_SetDigitalMode() do { ANSELAbits.ANSA1 = 0; } while(0)
-
 // get/set channel_AN2 aliases
 #define channel_AN2_TRIS               TRISAbits.TRISA2
 #define channel_AN2_LAT                LATAbits.LATA2
@@ -109,23 +75,6 @@
 #define channel_AN2_ResetPullup()    do { WPUAbits.WPUA2 = 0; } while(0)
 #define channel_AN2_SetAnalogMode()  do { ANSELAbits.ANSA2 = 1; } while(0)
 #define channel_AN2_SetDigitalMode() do { ANSELAbits.ANSA2 = 0; } while(0)
-
-// get/set channel_AN3 aliases
-#define channel_AN3_TRIS               TRISAbits.TRISA4
-#define channel_AN3_LAT                LATAbits.LATA4
-#define channel_AN3_PORT               PORTAbits.RA4
-#define channel_AN3_WPU                WPUAbits.WPUA4
-#define channel_AN3_ANS                ANSELAbits.ANSA4
-#define channel_AN3_SetHigh()            do { LATAbits.LATA4 = 1; } while(0)
-#define channel_AN3_SetLow()             do { LATAbits.LATA4 = 0; } while(0)
-#define channel_AN3_Toggle()             do { LATAbits.LATA4 = ~LATAbits.LATA4; } while(0)
-#define channel_AN3_GetValue()           PORTAbits.RA4
-#define channel_AN3_SetDigitalInput()    do { TRISAbits.TRISA4 = 1; } while(0)
-#define channel_AN3_SetDigitalOutput()   do { TRISAbits.TRISA4 = 0; } while(0)
-#define channel_AN3_SetPullup()      do { WPUAbits.WPUA4 = 1; } while(0)
-#define channel_AN3_ResetPullup()    do { WPUAbits.WPUA4 = 0; } while(0)
-#define channel_AN3_SetAnalogMode()  do { ANSELAbits.ANSA4 = 1; } while(0)
-#define channel_AN3_SetDigitalMode() do { ANSELAbits.ANSA4 = 0; } while(0)
 
 // get/set channel_AN4 aliases
 #define channel_AN4_TRIS               TRISCbits.TRISC0
@@ -178,22 +127,25 @@
 #define channel_AN6_SetAnalogMode()  do { ANSELCbits.ANSC2 = 1; } while(0)
 #define channel_AN6_SetDigitalMode() do { ANSELCbits.ANSC2 = 0; } while(0)
 
-// get/set channel_AN7 aliases
-#define channel_AN7_TRIS               TRISCbits.TRISC3
-#define channel_AN7_LAT                LATCbits.LATC3
-#define channel_AN7_PORT               PORTCbits.RC3
-#define channel_AN7_WPU                WPUCbits.WPUC3
-#define channel_AN7_ANS                ANSELCbits.ANSC3
-#define channel_AN7_SetHigh()            do { LATCbits.LATC3 = 1; } while(0)
-#define channel_AN7_SetLow()             do { LATCbits.LATC3 = 0; } while(0)
-#define channel_AN7_Toggle()             do { LATCbits.LATC3 = ~LATCbits.LATC3; } while(0)
-#define channel_AN7_GetValue()           PORTCbits.RC3
-#define channel_AN7_SetDigitalInput()    do { TRISCbits.TRISC3 = 1; } while(0)
-#define channel_AN7_SetDigitalOutput()   do { TRISCbits.TRISC3 = 0; } while(0)
-#define channel_AN7_SetPullup()      do { WPUCbits.WPUC3 = 1; } while(0)
-#define channel_AN7_ResetPullup()    do { WPUCbits.WPUC3 = 0; } while(0)
-#define channel_AN7_SetAnalogMode()  do { ANSELCbits.ANSC3 = 1; } while(0)
-#define channel_AN7_SetDigitalMode() do { ANSELCbits.ANSC3 = 0; } while(0)
+// get/set RC4 procedures
+#define RC4_SetHigh()    do { LATCbits.LATC4 = 1; } while(0)
+#define RC4_SetLow()   do { LATCbits.LATC4 = 0; } while(0)
+#define RC4_Toggle()   do { LATCbits.LATC4 = ~LATCbits.LATC4; } while(0)
+#define RC4_GetValue()         PORTCbits.RC4
+#define RC4_SetDigitalInput()   do { TRISCbits.TRISC4 = 1; } while(0)
+#define RC4_SetDigitalOutput()  do { TRISCbits.TRISC4 = 0; } while(0)
+#define RC4_SetPullup()     do { WPUCbits.WPUC4 = 1; } while(0)
+#define RC4_ResetPullup()   do { WPUCbits.WPUC4 = 0; } while(0)
+
+// get/set RC5 procedures
+#define RC5_SetHigh()    do { LATCbits.LATC5 = 1; } while(0)
+#define RC5_SetLow()   do { LATCbits.LATC5 = 0; } while(0)
+#define RC5_Toggle()   do { LATCbits.LATC5 = ~LATCbits.LATC5; } while(0)
+#define RC5_GetValue()         PORTCbits.RC5
+#define RC5_SetDigitalInput()   do { TRISCbits.TRISC5 = 1; } while(0)
+#define RC5_SetDigitalOutput()  do { TRISCbits.TRISC5 = 0; } while(0)
+#define RC5_SetPullup()     do { WPUCbits.WPUC5 = 1; } while(0)
+#define RC5_ResetPullup()   do { WPUCbits.WPUC5 = 0; } while(0)
 
 /**
    @Param
