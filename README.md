@@ -1,12 +1,8 @@
 # Motion detector
 
-This is a project to demonstrate motion detectors for detecting moving people.
+This is a project to demonstrate motion detectors for sensing a person moving around in a room.
 
-## Motivation
-
-I must develop an IoT prototype to detect people moving around in a room.
-
-## Motion detectors
+## Sensors
 
 I often go shopping at [Akizuki-Denshi](http://akizukidenshi.com/) in Akihabara, Tokyo. The company sells sensors at low prices. Thanks a lot to Akizuki-Denshi! The company has been saveing my life!
 
@@ -37,7 +33,7 @@ I have been owing this "serialport" package a lot for IoT prototyping since 2016
 
 Thanks a lot to the developers of the package.
 
-I must admit that JavaScript/Node.js is the best language for rapid IoT prototyping, since I have been using it for IoT prototyping at work since 2016, even though I personally prefer Python over JavaScript.
+I must admit that JavaScript/Node.js is the best language for rapid IoT prototyping, since I have been using it for IoT prototyping at work since 2016.
 
 ## MQTT over WebSocket
 
