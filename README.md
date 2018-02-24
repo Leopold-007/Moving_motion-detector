@@ -8,7 +8,7 @@ I must develop an IoT prototype to detect people moving around in a room.
 
 ## Motion detectors
 
-I often go shopping at [Akizuki-Denshi](http://akizukidenshi.com/) in Akihabara, Tokyo. The company sells sensors at low prices. Thanks a lot to Akizuki-Denshi! The copany has been saveing my life!
+I often go shopping at [Akizuki-Denshi](http://akizukidenshi.com/) in Akihabara, Tokyo. The company sells sensors at low prices. Thanks a lot to Akizuki-Denshi! The company has been saveing my life!
 
 - [Doppler sensor: NJR4265 J1](http://akizukidenshi.com/catalog/g/gK-07776/)
 - [Pressure sensor: FSR406](http://akizukidenshi.com/catalog/g/gP-04158/)
