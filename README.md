@@ -64,7 +64,7 @@ CLI:
 ```
 t:125\n  --> set the interval to 8msec * 125 = 1sec 
 
-f:7\n  --> activate anaglon-in ports (b0011: P2 and P1)
+f:3\n  --> activate anaglon-in ports (b0011: P2 and P1)
 ```
 
 ## Thermistor
