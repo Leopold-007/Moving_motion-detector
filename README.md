@@ -53,11 +53,18 @@ I know about TypeScript and Angular2, but I stick to [AngularJS](https://angular
 
 I have developed [10bit ADC (4 analog-in ports) on PIC16F1825](./src/pic16f1825/adc.X).
 
+
+Pin numbers:
+```
+[AN6|AN5|AN4|AN2]
+ P4  P3  P2  P1
+```
+
 CLI:
 ```
 t:125\n  --> set the interval to 8msec * 125 = 1sec 
 
-f:7\n  --> activate anaglon-in ports (b0011)
+f:7\n  --> activate anaglon-in ports (b0011: P2 and P1)
 ```
 
 ## Thermistor
