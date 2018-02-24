@@ -57,7 +57,7 @@ I have developed [10bit ADC (4 analog-in ports) on PIC16F1825](./src/pic16f1825/
 
 ## Thermistor
 
-I bought [cheap thermistors]([103AT-2](http://akizukidenshi.com/catalog/g/gP-07258/) (50 yen for each) at AKihabara.
+I bought cheap thermistors ["103AT-2"](http://akizukidenshi.com/catalog/g/gP-07258/) (50 yen for each) in AKihabara.
 
 ![calc](./src/thermistor/calc.jpg)
 
