@@ -67,7 +67,7 @@ t:125\n  --> set the interval to 8msec * 125 = 1sec
 f:3\n  --> activate anaglon-in ports (b0011: P2 and P1)
 ```
 
-I use this ADC with very cheap thermistor and CdS.
+I use this ADC with very cheap thermistor, CdS and Force Sensing Registor(FSR).
 
 ## Thermistor
 
