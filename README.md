@@ -49,7 +49,7 @@ I often use Android tablets for demonstrating an IoT prototype. Here is a tip to
 
 I know about TypeScript and Angular2, but I stick to [AngularJS](https://angularjs.org/). I choose AngularJS over Angular2 for IoT prototyping for a lot of reasons.
 
-## 10bit ADC
+## 10bit ADC (Analog-Digital Converter)
 
 I have developed [10bit ADC (4 analog-in ports) on PIC16F1825](./src/pic16f1825/adc.X).
 
@@ -66,6 +66,8 @@ t:125\n  --> set the interval to 8msec * 125 = 1sec
 
 f:3\n  --> activate anaglon-in ports (b0011: P2 and P1)
 ```
+
+I use this ADC with very cheap thermistor and CdS.
 
 ## Thermistor
 
