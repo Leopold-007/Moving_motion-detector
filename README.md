@@ -69,6 +69,8 @@ f:3\n  --> activate anaglon-in ports (b0011: P2 and P1)
 
 I use this ADC with very cheap thermistor, CdS and Force Sensing Registor(FSR).
 
+![adc_circuit](./doc/adc_circuit.jpg)
+
 ## Thermistor
 
 I bought cheap thermistors ["103AT-2"](http://akizukidenshi.com/catalog/g/gP-07258/) (50 yen for each) in AKihabara.
