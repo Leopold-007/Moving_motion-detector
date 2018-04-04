@@ -1,0 +1,537 @@
+EESchema Schematic File Version 2
+LIBS:can-bus
+LIBS:power
+LIBS:device
+LIBS:switches
+LIBS:relays
+LIBS:motors
+LIBS:transistors
+LIBS:conn
+LIBS:linear
+LIBS:regul
+LIBS:74xx
+LIBS:cmos4000
+LIBS:adc-dac
+LIBS:memory
+LIBS:xilinx
+LIBS:microcontrollers
+LIBS:dsp
+LIBS:microchip
+LIBS:analog_switches
+LIBS:motorola
+LIBS:texas
+LIBS:intel
+LIBS:audio
+LIBS:interface
+LIBS:digital-audio
+LIBS:philips
+LIBS:display
+LIBS:cypress
+LIBS:siliconi
+LIBS:opto
+LIBS:atmel
+LIBS:contrib
+LIBS:valves
+LIBS:thermistor-cache
+EELAYER 25 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title "10bit AD Converter"
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L Thermistor TH1
+U 1 1 5AC3FAA4
+P 8900 3900
+F 0 "TH1" V 9000 3950 50  0000 C CNN
+F 1 "Thermistor" V 8800 3900 50  0000 C BNN
+F 2 "" H 8900 3900 50  0001 C CNN
+F 3 "" H 8900 3900 50  0001 C CNN
+	1    8900 3900
+	1    0    0    -1  
+$EndComp
+$Comp
+L Conn_02x04_Row_Letter_Last J4
+U 1 1 5AC3FD12
+P 7050 4350
+F 0 "J4" H 7100 4550 50  0000 C CNN
+F 1 "2x4 pin header" H 7100 4050 50  0000 C CNN
+F 2 "" H 7050 4350 50  0001 C CNN
+F 3 "" H 7050 4350 50  0001 C CNN
+	1    7050 4350
+	0    1    1    0   
+$EndComp
+$Comp
+L PIC16f1825-I/P U1
+U 1 1 5AC402F1
+P 4650 3650
+F 0 "U1" H 4250 4200 60  0000 C CNN
+F 1 "PIC16f1825-I/P" H 4550 4100 60  0000 C CNN
+F 2 "" H 4550 4100 60  0001 C CNN
+F 3 "" H 4550 4100 60  0001 C CNN
+	1    4650 3650
+	1    0    0    -1  
+$EndComp
+$Comp
+L Conn_01x01_Female J5
+U 1 1 5AC40353
+P 7700 3750
+F 0 "J5" H 7700 3850 50  0000 C CNN
+F 1 "Jumper" H 7700 3650 50  0000 C CNN
+F 2 "" H 7700 3750 50  0001 C CNN
+F 3 "" H 7700 3750 50  0001 C CNN
+	1    7700 3750
+	-1   0    0    -1  
+$EndComp
+$Comp
+L Conn_01x01_Female J6
+U 1 1 5AC405DD
+P 7700 4050
+F 0 "J6" H 7700 4150 50  0000 C CNN
+F 1 "Jumper" H 7700 3950 50  0000 C CNN
+F 2 "" H 7700 4050 50  0001 C CNN
+F 3 "" H 7700 4050 50  0001 C CNN
+	1    7700 4050
+	-1   0    0    -1  
+$EndComp
+$Comp
+L Thermistor TH2
+U 1 1 5AC4073D
+P 8900 4550
+F 0 "TH2" V 9000 4600 50  0000 C CNN
+F 1 "Thermistor" V 8800 4550 50  0000 C BNN
+F 2 "" H 8900 4550 50  0001 C CNN
+F 3 "" H 8900 4550 50  0001 C CNN
+	1    8900 4550
+	1    0    0    -1  
+$EndComp
+$Comp
+L Conn_01x01_Female J7
+U 1 1 5AC40743
+P 7700 4400
+F 0 "J7" H 7700 4500 50  0000 C CNN
+F 1 "Jumper" H 7700 4300 50  0000 C CNN
+F 2 "" H 7700 4400 50  0001 C CNN
+F 3 "" H 7700 4400 50  0001 C CNN
+	1    7700 4400
+	-1   0    0    -1  
+$EndComp
+$Comp
+L Conn_01x01_Female J8
+U 1 1 5AC40749
+P 7700 4700
+F 0 "J8" H 7700 4800 50  0000 C CNN
+F 1 "Jumper" H 7700 4600 50  0000 C CNN
+F 2 "" H 7700 4700 50  0001 C CNN
+F 3 "" H 7700 4700 50  0001 C CNN
+	1    7700 4700
+	-1   0    0    -1  
+$EndComp
+$Comp
+L Conn_01x01_Female J9
+U 1 1 5AC40A58
+P 7700 5050
+F 0 "J9" H 7700 5150 50  0000 C CNN
+F 1 "Jumper" H 7700 4950 50  0000 C CNN
+F 2 "" H 7700 5050 50  0001 C CNN
+F 3 "" H 7700 5050 50  0001 C CNN
+	1    7700 5050
+	-1   0    0    -1  
+$EndComp
+$Comp
+L Conn_01x01_Female J10
+U 1 1 5AC40A5E
+P 7700 5350
+F 0 "J10" H 7700 5450 50  0000 C CNN
+F 1 "Jumper" H 7700 5250 50  0000 C CNN
+F 2 "" H 7700 5350 50  0001 C CNN
+F 3 "" H 7700 5350 50  0001 C CNN
+	1    7700 5350
+	-1   0    0    -1  
+$EndComp
+$Comp
+L CdS R5
+U 1 1 5AC40CC2
+P 8900 5300
+F 0 "R5" H 9000 5650 60  0000 C CNN
+F 1 "CdS" H 9000 5550 60  0000 C CNN
+F 2 "" H 9250 5100 60  0001 C CNN
+F 3 "" H 9250 5100 60  0001 C CNN
+	1    8900 5300
+	1    0    0    -1  
+$EndComp
+Text Label 8450 3700 2    60   ~ 0
+1a
+Text Label 8450 4100 2    60   ~ 0
+1b
+Text Label 8450 4350 2    60   ~ 0
+2a
+Text Label 8450 4750 2    60   ~ 0
+2b
+Text Label 8450 4900 2    60   ~ 0
+3a
+Text Label 8450 5650 2    60   ~ 0
+3b
+$Comp
+L R R1
+U 1 1 5AC420FC
+P 3600 3350
+F 0 "R1" V 3680 3350 50  0000 C CNN
+F 1 "51k" V 3600 3350 50  0000 C CNN
+F 2 "" V 3530 3350 50  0001 C CNN
+F 3 "" H 3600 3350 50  0001 C CNN
+	1    3600 3350
+	0    1    1    0   
+$EndComp
+$Comp
+L Conn_01x04 J1
+U 1 1 5AC46B5D
+P 2400 4900
+F 0 "J1" H 2400 5100 50  0000 C CNN
+F 1 "To USB-UART converter" H 2400 4600 50  0000 C CNN
+F 2 "" H 2400 4900 50  0001 C CNN
+F 3 "" H 2400 4900 50  0001 C CNN
+	1    2400 4900
+	0    1    1    0   
+$EndComp
+$Comp
+L Conn_01x04 J2
+U 1 1 5AC411F4
+P 7050 2500
+F 0 "J2" H 7050 2700 50  0000 C CNN
+F 1 "Pin header" H 7050 2200 50  0000 C CNN
+F 2 "" H 7050 2500 50  0001 C CNN
+F 3 "" H 7050 2500 50  0001 C CNN
+	1    7050 2500
+	0    1    1    0   
+$EndComp
+$Comp
+L Conn_01x04 J3
+U 1 1 5AC41276
+P 7050 3000
+F 0 "J3" H 7050 3200 50  0000 C CNN
+F 1 "Pin header" H 7050 2700 50  0000 C CNN
+F 2 "" H 7050 3000 50  0001 C CNN
+F 3 "" H 7050 3000 50  0001 C CNN
+	1    7050 3000
+	0    1    -1   0   
+$EndComp
+$Comp
+L R R2
+U 1 1 5AC42C36
+P 8350 1700
+F 0 "R2" V 8430 1700 50  0000 C CNN
+F 1 "10k" V 8350 1700 50  0000 C CNN
+F 2 "" V 8280 1700 50  0001 C CNN
+F 3 "" H 8350 1700 50  0001 C CNN
+	1    8350 1700
+	1    0    0    -1  
+$EndComp
+$Comp
+L R R3
+U 1 1 5AC42D67
+P 8350 2350
+F 0 "R3" V 8430 2350 50  0000 C CNN
+F 1 "10k" V 8350 2350 50  0000 C CNN
+F 2 "" V 8280 2350 50  0001 C CNN
+F 3 "" H 8350 2350 50  0001 C CNN
+	1    8350 2350
+	1    0    0    -1  
+$EndComp
+$Comp
+L R R4
+U 1 1 5AC42DB6
+P 8350 3000
+F 0 "R4" V 8430 3000 50  0000 C CNN
+F 1 "10k" V 8350 3000 50  0000 C CNN
+F 2 "" V 8280 3000 50  0001 C CNN
+F 3 "" H 8350 3000 50  0001 C CNN
+	1    8350 3000
+	1    0    0    -1  
+$EndComp
+Text Label 2450 5100 0    60   ~ 0
+5V
+Text Label 2300 5200 0    60   ~ 0
+GND
+Text Label 2300 5100 0    60   ~ 0
+TX
+Text Label 2150 5100 0    60   ~ 0
+RX
+NoConn ~ 4000 3450
+NoConn ~ 4000 3550
+NoConn ~ 4000 3950
+NoConn ~ 5950 3450
+NoConn ~ 5950 3550
+$Comp
+L GND #PWR01
+U 1 1 5AC45BBC
+P 3000 4700
+F 0 "#PWR01" H 3000 4450 50  0001 C CNN
+F 1 "GND" H 3000 4550 50  0000 C CNN
+F 2 "" H 3000 4700 50  0001 C CNN
+F 3 "" H 3000 4700 50  0001 C CNN
+	1    3000 4700
+	1    0    0    -1  
+$EndComp
+$Comp
+L +5V #PWR02
+U 1 1 5AC45C68
+P 2200 3000
+F 0 "#PWR02" H 2200 2850 50  0001 C CNN
+F 1 "+5V" H 2200 3140 50  0000 C CNN
+F 2 "" H 2200 3000 50  0001 C CNN
+F 3 "" H 2200 3000 50  0001 C CNN
+	1    2200 3000
+	1    0    0    -1  
+$EndComp
+$Comp
+L PWR_FLAG #FLG03
+U 1 1 5AC45D30
+P 1900 3100
+F 0 "#FLG03" H 1900 3175 50  0001 C CNN
+F 1 "PWR_FLAG" H 1900 3250 50  0000 C CNN
+F 2 "" H 1900 3100 50  0001 C CNN
+F 3 "" H 1900 3100 50  0001 C CNN
+	1    1900 3100
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2500 2200 7150 2200
+Connection ~ 7150 2200
+Wire Wire Line
+	6850 3200 6850 4150
+Wire Wire Line
+	6950 3200 6950 4150
+Wire Wire Line
+	7050 3200 7050 4150
+Wire Wire Line
+	7150 3200 7150 4150
+Wire Wire Line
+	8900 3700 7950 3700
+Wire Wire Line
+	7950 3700 7950 3750
+Wire Wire Line
+	7950 3750 7900 3750
+Wire Wire Line
+	8900 4100 7950 4100
+Wire Wire Line
+	7950 4100 7950 4050
+Wire Wire Line
+	7950 4050 7900 4050
+Wire Wire Line
+	8900 4350 7950 4350
+Wire Wire Line
+	7950 4350 7950 4400
+Wire Wire Line
+	7950 4400 7900 4400
+Wire Wire Line
+	8900 4750 7950 4750
+Wire Wire Line
+	7950 4750 7950 4700
+Wire Wire Line
+	7950 4700 7900 4700
+Wire Wire Line
+	8900 4900 7950 4900
+Wire Wire Line
+	7950 4900 7950 5050
+Wire Wire Line
+	7950 5050 7900 5050
+Wire Wire Line
+	8900 5650 7950 5650
+Wire Wire Line
+	7950 5650 7950 5350
+Wire Wire Line
+	7950 5350 7900 5350
+Wire Wire Line
+	8900 4950 8900 4900
+Wire Wire Line
+	3850 2200 3850 3350
+Wire Wire Line
+	3750 3350 4000 3350
+Connection ~ 3850 3350
+Wire Wire Line
+	3450 3350 3350 3350
+Wire Wire Line
+	3350 3350 3350 3650
+Wire Wire Line
+	3350 3650 4000 3650
+Wire Wire Line
+	5950 3650 7150 3650
+Connection ~ 7150 3650
+Wire Wire Line
+	5950 3750 7050 3750
+Connection ~ 7050 3750
+Wire Wire Line
+	5950 3850 6950 3850
+Connection ~ 6950 3850
+Wire Wire Line
+	5950 3950 6850 3950
+Connection ~ 6850 3950
+Wire Wire Line
+	6850 4650 6850 4800
+Wire Wire Line
+	6450 4800 7150 4800
+Wire Wire Line
+	6450 3350 6450 4800
+Wire Wire Line
+	6950 4800 6950 4650
+Connection ~ 6850 4800
+Wire Wire Line
+	7050 4800 7050 4650
+Connection ~ 6950 4800
+Wire Wire Line
+	7150 4800 7150 4650
+Connection ~ 7050 4800
+Wire Wire Line
+	5950 3350 6450 3350
+Connection ~ 6450 4800
+Wire Wire Line
+	2300 4700 2300 3750
+Wire Wire Line
+	2300 3750 4000 3750
+Wire Wire Line
+	2200 4700 2200 3850
+Wire Wire Line
+	2200 3850 4000 3850
+Wire Wire Line
+	2500 2200 2500 4700
+Connection ~ 3850 2200
+Wire Wire Line
+	2400 4200 6450 4200
+Wire Wire Line
+	2400 4200 2400 4700
+Wire Wire Line
+	6850 2300 6850 2200
+Connection ~ 6850 2200
+Wire Wire Line
+	6950 2300 6950 2200
+Connection ~ 6950 2200
+Wire Wire Line
+	7050 2300 7050 2200
+Connection ~ 7050 2200
+Wire Wire Line
+	7150 2200 7150 2300
+Wire Wire Line
+	2200 3000 2200 3200
+Wire Wire Line
+	2200 3200 2500 3200
+Connection ~ 2500 3200
+Wire Wire Line
+	1900 3100 2200 3100
+Connection ~ 2200 3100
+$Comp
+L Conn_01x01_Female J13
+U 1 1 5AC468F1
+P 7700 2200
+F 0 "J13" H 7700 2300 50  0000 C CNN
+F 1 "Jumper" H 7700 2100 50  0000 C CNN
+F 2 "" H 7700 2200 50  0001 C CNN
+F 3 "" H 7700 2200 50  0001 C CNN
+	1    7700 2200
+	-1   0    0    -1  
+$EndComp
+$Comp
+L Conn_01x01_Female J14
+U 1 1 5AC46F6B
+P 7700 2500
+F 0 "J14" H 7700 2600 50  0000 C CNN
+F 1 "Jumper" H 7700 2400 50  0000 C CNN
+F 2 "" H 7700 2500 50  0001 C CNN
+F 3 "" H 7700 2500 50  0001 C CNN
+	1    7700 2500
+	-1   0    0    -1  
+$EndComp
+$Comp
+L Conn_01x01_Female J15
+U 1 1 5AC46FED
+P 7700 2850
+F 0 "J15" H 7700 2950 50  0000 C CNN
+F 1 "Jumper" H 7700 2750 50  0000 C CNN
+F 2 "" H 7700 2850 50  0001 C CNN
+F 3 "" H 7700 2850 50  0001 C CNN
+	1    7700 2850
+	-1   0    0    -1  
+$EndComp
+$Comp
+L Conn_01x01_Female J16
+U 1 1 5AC46FF3
+P 7700 3150
+F 0 "J16" H 7700 3250 50  0000 C CNN
+F 1 "Jumper" H 7700 3050 50  0000 C CNN
+F 2 "" H 7700 3150 50  0001 C CNN
+F 3 "" H 7700 3150 50  0001 C CNN
+	1    7700 3150
+	-1   0    0    -1  
+$EndComp
+$Comp
+L Conn_01x01_Female J11
+U 1 1 5AC47507
+P 7700 1550
+F 0 "J11" H 7700 1650 50  0000 C CNN
+F 1 "Jumper" H 7700 1450 50  0000 C CNN
+F 2 "" H 7700 1550 50  0001 C CNN
+F 3 "" H 7700 1550 50  0001 C CNN
+	1    7700 1550
+	-1   0    0    -1  
+$EndComp
+$Comp
+L Conn_01x01_Female J12
+U 1 1 5AC4750D
+P 7700 1850
+F 0 "J12" H 7700 1950 50  0000 C CNN
+F 1 "Jumper" H 7700 1750 50  0000 C CNN
+F 2 "" H 7700 1850 50  0001 C CNN
+F 3 "" H 7700 1850 50  0001 C CNN
+	1    7700 1850
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	7900 1550 8350 1550
+Wire Wire Line
+	7900 1850 8350 1850
+Wire Wire Line
+	7900 2200 8350 2200
+Wire Wire Line
+	7900 2500 8350 2500
+Wire Wire Line
+	7900 2850 8350 2850
+Wire Wire Line
+	7900 3150 8350 3150
+Text Label 8150 1550 0    60   ~ 0
+1
+Text Label 8150 1850 0    60   ~ 0
+1
+Text Label 8150 2200 0    60   ~ 0
+2
+Text Label 8150 2500 0    60   ~ 0
+2
+Text Label 8150 2850 0    60   ~ 0
+3
+Text Label 8150 3150 0    60   ~ 0
+3
+Wire Wire Line
+	3000 4700 3000 4200
+Connection ~ 3000 4200
+$Comp
+L PWR_FLAG #FLG04
+U 1 1 5AC48687
+P 3350 4550
+F 0 "#FLG04" H 3350 4625 50  0001 C CNN
+F 1 "PWR_FLAG" H 3350 4700 50  0000 C CNN
+F 2 "" H 3350 4550 50  0001 C CNN
+F 3 "" H 3350 4550 50  0001 C CNN
+	1    3350 4550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3350 4550 3000 4550
+Connection ~ 3000 4550
+$EndSCHEMATC
