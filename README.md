@@ -76,7 +76,7 @@ I bought cheap thermistors ["103AT-2"](http://akizukidenshi.com/catalog/g/gP-072
 
 ![calc](./src/thermistor/calc.jpg)
 
-And this is a sample code to calculate temperature in Celsius:
+And this is a sample JavaScript code to calculate temperature in Celsius:
 ```
 const R0 = 10000.0;
 const T0 = 25.0;
