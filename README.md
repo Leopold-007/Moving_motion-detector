@@ -92,6 +92,8 @@ function temp(v) {
 }
 ```
 
+I have confirmed that this cheap thermistor with the quation above achieves good accuracy of temeperature measurement.
+
 ## MOSFET relay
 
 I use MOSFET as a relay for turning LED on and off, mimicking a ceiling light.
