@@ -33,15 +33,10 @@ Raw data <--->[serial-mqtt bridge]<--MQTT-->[mosquitto]<--MQTT over WebSocket-->
 
 ## "serialport" package
 
-I have been owing this "serialport" package a lot for IoT prototyping since 2016: https://www.npmjs.com/package/serialport
-
-Thanks a lot to the developers of the package.
-
-I must admit that JavaScript/Node.js is the best language for rapid IoT prototyping, since I have been using it for IoT prototyping at work since 2016.
+I have been owing this "serialport" package a lot for my IoT prototyping projects since 2016: https://www.npmjs.com/package/serialport
 
 ## MQTT over WebSocket
 
-MQTT is MUST for IoT prototyping. I have even been using MQTT on HTML5.
 - [Obtaining mosquitto with WebSockets enabled](https://xperimentia.com/2015/08/20/installing-mosquitto-mqtt-broker-on-raspberry-pi-with-websockets/)
 - [Building browserMqtt.js](https://github.com/mqttjs/MQTT.js/)
 
