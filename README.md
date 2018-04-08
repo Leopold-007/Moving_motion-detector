@@ -91,3 +91,9 @@ function temp(v) {
     return t;
 }
 ```
+
+## MOSFET relay
+
+I use MOSFET as a relay for turning LED on and off, mimicking a ceiling light.
+
+![fet_circuilt](./doc/fet_circuit.jpg)
