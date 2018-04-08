@@ -13,7 +13,7 @@ This is a project to demonstrate motion detectors for sensing a person moving ar
 - [Thermistor](http://akizukidenshi.com/catalog/g/gP-07258/)
 - [CdS](http://akizukidenshi.com/catalog/g/gI-00110/)
 
-### Actuators
+### Transistors
 
 - [MOSFET: 2SK2232](http://akizukidenshi.com/catalog/g/gI-02414/)
 
