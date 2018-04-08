@@ -2,9 +2,9 @@
 
 This is a project to demonstrate motion detectors for sensing a person moving around in a room.
 
-## Sensors
+## Components
 
-I often go shopping at [Akizuki-Denshi](http://akizukidenshi.com/) in Akihabara, Tokyo. The company sells sensors at low prices. Thanks a lot to Akizuki-Denshi! The company has been saveing my life!
+### Sensors
 
 - [Doppler sensor: NJR4265 J1](http://akizukidenshi.com/catalog/g/gK-07776/)
 - [Force sensing registor: FSR406](http://akizukidenshi.com/catalog/g/gP-04158/)
@@ -12,6 +12,10 @@ I often go shopping at [Akizuki-Denshi](http://akizukidenshi.com/) in Akihabara,
 - [GPS tracker (GPS module enclosed in my original 3D-printed case)](https://github.com/araobp/gps_android)
 - [Thermistor](http://akizukidenshi.com/catalog/g/gP-07258/)
 - [CdS](http://akizukidenshi.com/catalog/g/gI-00110/)
+
+### Actuators
+
+- [MOSFET: 2SK2232](http://akizukidenshi.com/catalog/g/gI-02414/)
 
 ## Architecture
 
