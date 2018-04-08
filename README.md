@@ -1,5 +1,7 @@
 # Motion detector
 
+![adc_doppler](./doc/adc_doppler.jpg)
+
 This is a project to demonstrate motion detectors for sensing a person moving around in a room.
 
 ## Components
