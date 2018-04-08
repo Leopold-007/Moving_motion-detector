@@ -2,9 +2,9 @@
 
 This is a project to demonstrate motion detectors for sensing a person moving around in a room.
 
-## Sensors
+## Components
 
-I often go shopping at [Akizuki-Denshi](http://akizukidenshi.com/) in Akihabara, Tokyo. The company sells sensors at low prices. Thanks a lot to Akizuki-Denshi! The company has been saveing my life!
+### Sensors
 
 - [Doppler sensor: NJR4265 J1](http://akizukidenshi.com/catalog/g/gK-07776/)
 - [Force sensing registor: FSR406](http://akizukidenshi.com/catalog/g/gP-04158/)
@@ -12,6 +12,10 @@ I often go shopping at [Akizuki-Denshi](http://akizukidenshi.com/) in Akihabara,
 - [GPS tracker (GPS module enclosed in my original 3D-printed case)](https://github.com/araobp/gps_android)
 - [Thermistor](http://akizukidenshi.com/catalog/g/gP-07258/)
 - [CdS](http://akizukidenshi.com/catalog/g/gI-00110/)
+
+### Transistors
+
+- [MOSFET: 2SK2232](http://akizukidenshi.com/catalog/g/gI-02414/)
 
 ## Architecture
 
@@ -29,15 +33,10 @@ Raw data <--->[serial-mqtt bridge]<--MQTT-->[mosquitto]<--MQTT over WebSocket-->
 
 ## "serialport" package
 
-I have been owing this "serialport" package a lot for IoT prototyping since 2016: https://www.npmjs.com/package/serialport
-
-Thanks a lot to the developers of the package.
-
-I must admit that JavaScript/Node.js is the best language for rapid IoT prototyping, since I have been using it for IoT prototyping at work since 2016.
+I have been owing this "serialport" package a lot for my IoT prototyping projects since 2016: https://www.npmjs.com/package/serialport
 
 ## MQTT over WebSocket
 
-MQTT is MUST for IoT prototyping. I have even been using MQTT on HTML5.
 - [Obtaining mosquitto with WebSockets enabled](https://xperimentia.com/2015/08/20/installing-mosquitto-mqtt-broker-on-raspberry-pi-with-websockets/)
 - [Building browserMqtt.js](https://github.com/mqttjs/MQTT.js/)
 
@@ -71,7 +70,7 @@ I use this ADC with very cheap thermistor, CdS and Force Sensing Registor(FSR).
 
 ![adc_circuit](./doc/adc_circuit.jpg)
 
-## Thermistor
+### Thermistor
 
 I bought cheap thermistors ["103AT-2"](http://akizukidenshi.com/catalog/g/gP-07258/) (50 yen for each) in AKihabara.
 
@@ -92,3 +91,9 @@ function temp(v) {
     return t;
 }
 ```
+
+## MOSFET relay
+
+I use MOSFET as a relay for turning LED on and off, mimicking a ceiling light.
+
+![fet_circuilt](./doc/fet_circuit.jpg)
